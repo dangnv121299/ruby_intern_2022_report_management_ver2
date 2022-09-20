@@ -1,0 +1,17 @@
+en:
+  layouts:
+    application:
+      base_title: "Daily Report Management"
+    header:
+      home: "Home"
+      help: "Help"
+      login: "Log in"
+      en: "En"
+      vi: "Vi"
+  static_pages:
+    help:
+      title: "Help"
+      help_content: "If you need get help. Please contact to your manager."
+    home:
+      title: "Home"
+      home_content: "This is report management of Sun Asterisk Vietnam"
