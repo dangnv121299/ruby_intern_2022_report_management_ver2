@@ -8,6 +8,9 @@ en:
       login: "Log in"
       en: "En"
       vi: "Vi"
+    footer:
+      term: "Terms of Service"
+      privacy: "Privacy"
   static_pages:
     help:
       title: "Help"
