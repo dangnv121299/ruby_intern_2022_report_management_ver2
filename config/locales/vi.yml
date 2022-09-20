@@ -1,0 +1,17 @@
+vi:
+  layouts:
+    application:
+      base_title: "Hệ thống Báo cáo Hàng ngày"
+    header:
+      home: "Trang chủ"
+      help: "Trợ giúp"
+      login: "Đăng nhập"
+      en: "Tiếng Anh"
+      vi: "Tiếng Việt"
+  static_pages:
+    help:
+      title: "Trợ giúp"
+      help_content: "Nếu bạn cần giúp đỡ. Hãy liên lạc tới người quản lý của bạn."
+    home:
+      title: "Trang chủ"
+      home_content: "Đây là trang chủ của hệ thống Báo cáo hàng ngày của Sun Asterisk Việt Nam"
