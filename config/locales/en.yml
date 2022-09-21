@@ -1,4 +1,32 @@
 en:
+  sessions:
+    new:
+      title: "Login"
+      email: "Email"
+      password: "Password"
+      new_user: "New User?"
+    create:
+      activate_fail: "Đăng nhập thất bại"
+      flash_danger: "Sai thông tin đăng nhập"
+  shared:
+    error_messages:
+      message_error: "This form has"
+      error: "errors"
+  users:
+    new:
+      title: "Register"
+      register: "Register"
+      welcome_register: "Welcome the new employee!"
+      answer_account: "Response"
+      sign_in: "Login"
+    create:
+      create_success: "Create success"
+      create_fail: "Create fail"
+    form:
+      name: "Name"
+      email: "Email"
+      password: "Password"
+      confirm_password: "Confirm Password"
   layouts:
     application:
       base_title: "Daily Report Management"
