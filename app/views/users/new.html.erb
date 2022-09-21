@@ -1,0 +1,15 @@
+<% provide :title, t(".title") %>
+<% provide :button_text, t(".title") %>
+<div class="signup-form">
+  <h2>
+    <%= t ".register" %>
+  </h2>
+  <p class="hint-text">
+    <%= t ".welcome_register" %>
+  </p>
+  <%= render "form", user: @user %>
+  <div class="text-center">
+    <%= t ".answer_account" %>
+    <%= link_to t(".sign_in"), login_path %>
+  </div>
+</div>

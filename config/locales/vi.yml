@@ -1,4 +1,33 @@
 vi:
+  sessions:
+    new:
+      title: "Đăng nhập"
+      email: "Email"
+      password: "Mật khẩu"
+      new_user: "Bạn chưa có tài khoản? Vui lòng liên hệ với quản lý"
+      signup: "Sign Up Now"
+    create:
+      activate_fail: "Đăng nhập thất bại"
+      flash_danger: "Sai thông tin đăng nhập"
+  shared:
+    error_messages:
+      message_error: "Bản đăng kí có"
+      error: "lỗi"
+  users:
+    new:
+      title: "Tạo mới"
+      register: "Tạo tài khoản mới"
+      welcome_register: "Chào mừng thành viên mới!"
+      answer_account: "Trả lời"
+      sign_in: "Đăng nhập"
+    create:
+      create_success: "Tạo thành công"
+      create_fail: "Tạo thất bại"
+    form:
+      name: "Tên"
+      email: "Email"
+      password: "Mật khẩu"
+      confirm_password: "Xác nhận mật khẩu"
   layouts:
     application:
       base_title: "Hệ thống Báo cáo Hàng ngày"
