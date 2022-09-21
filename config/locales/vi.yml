@@ -8,6 +8,10 @@ vi:
       login: "Đăng nhập"
       en: "Tiếng Anh"
       vi: "Tiếng Việt"
+    footer:
+      term: "Điều khoản dịch vụ"
+      privacy: "Bảo mật"
+      company: "Sun Asterisk Việt Nam. Make awesom things that matter"
   static_pages:
     help:
       title: "Trợ giúp"
