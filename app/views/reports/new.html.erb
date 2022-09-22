@@ -1,0 +1,12 @@
+<%= provide :title, t(".create_report") %>
+<h2 class="title-center">
+  <%= t ".create_report" %>
+</h2>
+
+<div class="div-new-report">
+  <div class="div-date-report">
+    <%= t ".today" %>
+    <%= Time.now.strftime(Settings.reports.new.datetime) %>
+  </div>
+  <%= render "form", report: @report %>
+</div>

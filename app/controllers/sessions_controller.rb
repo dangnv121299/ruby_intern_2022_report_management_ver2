@@ -22,9 +22,10 @@ class SessionsController < ApplicationController
 
   def find_by_email
     @user = User.find_by email: params.dig(:session, :email)&.downcase
+
     return if @user
 
     flash[:danger] = t ".find_error"
-    redirect_to root_path
+    redirect_to login_url
   end
 end

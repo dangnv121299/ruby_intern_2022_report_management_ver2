@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   belongs_to :user_department, optional: true
-  has_many :daily_reports, dependent: :destroy
+  has_many :reports, dependent: :destroy
 
   has_secure_password
   validates :password, presence: true,
@@ -11,7 +11,10 @@ class User < ApplicationRecord
   validates :email, presence: true, length: {maximum: Settings.user.max_email},
                     format: {with: Settings.user.email_regex},
                     uniqueness: true
+
   UPDATABLE_ATTRS = %i(name email password password_confirmation).freeze
+
+  enum role: {member: 0, manager: 1, admin: 2}
 
   class << self
     def digest string

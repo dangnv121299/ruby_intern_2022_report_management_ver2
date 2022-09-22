@@ -5,5 +5,15 @@ user:
   min_password: 6
 department:
   max_name: 50
-daily_report:
+report:
   max_length: 510
+reports:
+  new:
+    datetime: "%d/%m/%Y"
+form:
+  create_form:
+    num_row: 5
+users_helper:
+  gravatar_size: 50
+page_10: 10
+digit_50: 50
