@@ -22,10 +22,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    return if @user
-
-    flash[:warning] = t ".not_found"
-    redirect_to root_path
+    @pagy, @reports = pagy @user.reports
   end
 
   private

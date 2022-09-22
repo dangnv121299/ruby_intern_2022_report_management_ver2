@@ -1,4 +1,15 @@
 en:
+  reports:
+    show:
+      report: "Daily Report"
+      create: "Create"
+    form:
+      receiver: "Receiver"
+      plan_today: "Plan today"
+      reality: "Reality"
+      reason: "Reason"
+      plan_next_day: "Plan next day"
+      create: "Create"
   sessions:
     new:
       title: "Login"

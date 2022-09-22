@@ -10,23 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_20_064013) do
-
-  create_table "daily_reports", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "status", default: 0
-    t.text "plan_today"
-    t.text "reality"
-    t.text "reason"
-    t.text "plan_next_day"
-    t.bigint "users_id", null: false
-    t.bigint "user_departments_id", null: false
-    t.bigint "departments_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["departments_id"], name: "index_daily_reports_on_departments_id"
-    t.index ["user_departments_id"], name: "index_daily_reports_on_user_departments_id"
-    t.index ["users_id"], name: "index_daily_reports_on_users_id"
-  end
+ActiveRecord::Schema.define(version: 2022_09_21_094611) do
 
   create_table "departments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -34,16 +18,32 @@ ActiveRecord::Schema.define(version: 2022_09_20_064013) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "reports", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "status", default: 0
+    t.text "plan_today"
+    t.text "reality"
+    t.text "reason"
+    t.text "plan_next_day"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.bigint "user_department_id"
+    t.bigint "department_id"
+    t.index ["department_id"], name: "index_reports_on_department_id"
+    t.index ["user_department_id"], name: "index_reports_on_user_department_id"
+    t.index ["user_id"], name: "index_reports_on_user_id"
+  end
+
   create_table "user_departments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "day_start"
     t.integer "role", default: 1
-    t.bigint "departments_id", null: false
-    t.bigint "users_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["departments_id"], name: "index_user_departments_on_departments_id"
-    t.index ["users_id"], name: "index_user_departments_on_users_id"
+    t.bigint "department_id"
+    t.bigint "user_id"
+    t.index ["department_id"], name: "index_user_departments_on_department_id"
+    t.index ["user_id"], name: "index_user_departments_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -62,9 +62,9 @@ ActiveRecord::Schema.define(version: 2022_09_20_064013) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "daily_reports", "departments", column: "departments_id"
-  add_foreign_key "daily_reports", "user_departments", column: "user_departments_id"
-  add_foreign_key "daily_reports", "users", column: "users_id"
-  add_foreign_key "user_departments", "departments", column: "departments_id"
-  add_foreign_key "user_departments", "users", column: "users_id"
+  add_foreign_key "reports", "departments"
+  add_foreign_key "reports", "user_departments"
+  add_foreign_key "reports", "users"
+  add_foreign_key "user_departments", "departments"
+  add_foreign_key "user_departments", "users"
 end

@@ -1,4 +1,15 @@
 vi:
+  reports:
+    show:
+      report: "Báo cáo hàng ngày"
+      create: "Tạo mới"
+    form:
+      receiver: "Người nhận"
+      plan_today: "Kế hoạch hôm nay"
+      reality: "Thực tế"
+      reason: "Lý do (nếu có)"
+      plan_next_day: "Kế hoạch ngày mai"
+      create: "Gửi"
   sessions:
     new:
       title: "Đăng nhập"

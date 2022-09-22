@@ -1,0 +1,23 @@
+<%= form_for report do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="form-group">
+    <%= f.label t(".plan_today") %>
+    <span class="require-field">*</span>
+    <%= f.text_area :plan_today, class: "form-control", row: Settings.form.create_form.num_row %>
+  </div>
+  <div class="form-group">
+    <%= f.label t(".reality") %>
+    <span class="require-field">*</span>
+    <%= f.text_area :reality, class: "form-control", row: Settings.form.create_form.num_row %>
+  </div>
+  <div class="form-group">
+    <%= f.label :reason %>
+    <%= f.text_area :reason, class: "form-control", row: Settings.form.create_form.num_row %>
+  </div>
+  <div class="form-group">
+    <%= f.label :plan_next_day %>
+    <span class="require-field">*</span>
+    <%= f.text_area :plan_next_day, class: "form-control", row: Settings.form.create_form.num_row %>
+  </div>
+  <%= f.submit t(".create"), class: "btn btn-primary" %>
+<% end %>
