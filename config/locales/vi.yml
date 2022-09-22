@@ -25,6 +25,16 @@ vi:
       message_error: "Bản đăng kí có"
       error: "lỗi"
   users:
+    infor:
+      name: "Họ tên"
+      email: "Email"
+      phone: "Số điện thoại"
+      address: "Địa chỉ"
+    update:
+      edit_fail: "Không được phép sửa tài khoản này"
+    edit:
+      title: "Cập nhật tài khoản"
+      text: "Thay đổi"
     new:
       title: "Tạo mới"
       register: "Tạo tài khoản mới"
@@ -39,6 +49,8 @@ vi:
       email: "Email"
       password: "Mật khẩu"
       confirm_password: "Xác nhận mật khẩu"
+      phone: "Số điện thoại"
+      address: "Địa chỉ"
   layouts:
     application:
       base_title: "Hệ thống Báo cáo Hàng ngày"
@@ -51,7 +63,6 @@ vi:
     footer:
       term: "Điều khoản dịch vụ"
       privacy: "Bảo mật"
-      company: "Sun Asterisk Việt Nam. Make awesom things that matter"
   static_pages:
     help:
       title: "Trợ giúp"

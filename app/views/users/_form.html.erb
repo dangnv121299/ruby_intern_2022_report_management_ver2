@@ -16,5 +16,16 @@
     <%= f.label t(".confirm_password") %>
     <%= f.password_field :password_confirmation, class: "form-control", placeholder: t(".confirm_password") %>
   </div>
+
+  <% if current_user.present? %>
+    <div class="form-group">
+      <%= f.label t(".phone") %>
+      <%= f.text_field :phone, class: "form-control", placeholder: t(".phone") %>
+    </div>
+    <div class="form-group">
+      <%= f.label t(".address") %>
+      <%= f.text_field :address, class: "form-control", placeholder: t(".address") %>
+    </div>
+  <% end %>
   <%= f.submit yield(:button_text), class: "btn btn-success btn-lg btn-block" %>
 <% end %>
