@@ -1,7 +1,10 @@
-<% provide :title, t(".provide_title") %>
-<h1><%= t ".provide_title" %></h1>
+<% provide :title, t(".title") %>
+<h1><%= t ".title" %></h1>
+<% if current_user.manager? %>
+  <h4><%= link_to t(".create_user") , signup_path %></h4>
+<% end %>
 
-<%== pagy_bootstrap_nav(@pagy) %>
 <ul class="users">
   <%= render @users %>
 </ul>
+<%== pagy_bootstrap_nav(@pagy) %>

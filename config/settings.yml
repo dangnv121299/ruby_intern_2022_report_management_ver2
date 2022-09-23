@@ -19,3 +19,5 @@ users_helper:
   gravatar_size: 50
 page_10: 10
 digit_50: 50
+infor:
+  datetime: "%d/%m/%Y"
