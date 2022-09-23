@@ -16,6 +16,10 @@
     <%= f.label t(".confirm_password") %>
     <%= f.password_field :password_confirmation, class: "form-control", placeholder: t(".confirm_password") %>
   </div>
+  <div class="form-group">
+    <%= f.label t(".day_start") %>
+    <%= f.date_field :day_start, class: "form-control", placeholder: t(".day_start") %>
+  </div>
 
   <% if current_user.present? %>
     <div class="form-group">

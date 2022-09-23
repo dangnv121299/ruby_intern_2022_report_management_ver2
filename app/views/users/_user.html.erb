@@ -1,4 +1,7 @@
 <li>
   <%= gravatar_for user, size: Settings.digit_50 %>
   <%= link_to user.name, user_path(id: user) %>
+  <% if current_user.manager? && !current_user?(user) %>
+    <%= link_to t(".delete"), user, method: :delete, data: {confirm: t(".confirm")} %>
+  <% end %>
 </li>

@@ -5,6 +5,8 @@ class UsersController < ApplicationController
                 except: %i(new create index)
   before_action :correct_user, only: %i(edit update)
 
+  before_action ->{check_role? :manager}, only: %i(new create destroy)
+
   def index
     @pagy, @users = pagy(User.all, items: Settings.page_10)
   end
@@ -15,11 +17,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
-
+    @user.user_department_id = @current_user.id
     if @user.save
       flash[:info] = t ".create_success"
-      log_in @user
-      redirect_to root_path
+      redirect_to @user
     else
       flash.now[:danger] = t ".create_fail"
       render :new
@@ -40,10 +41,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    if @user.destroy
+      flash[:success] = t ".delete_success"
+    else
+      flash[:danger] = t ".delete_fail"
+    end
+  end
+
   private
 
   def user_params
-    params.require(:user).permit User::UPDATABLE_ATTRS
+    if current_user.manager?
+      params.require(:user).permit User::UPDATABLE_ATTRS_MANAGER
+    else
+      params.require(:user).permit User::UPDATABLE_ATTRS
+    end
   end
 
   def correct_user

@@ -24,11 +24,19 @@ en:
       message_error: "This form has"
       error: "errors"
   users:
+    user:
+      delete: "|Delete"
+      confirm: "You sure?"
     infor:
+      id: "Id staff"
       name: "Name"
       email: "Email"
       phone: "Phone"
       address: "Address"
+      day_start: "Day Start"
+    index:
+      title: "My Department"
+      create_user: "Create User"
     update:
       edit_fail: "Can't update this account"
     edit:
@@ -50,6 +58,11 @@ en:
       confirm_password: "Confirm Password"
       phone: "Phone"
       address: "Address"
+      day_start: "Day Start"
+    destroy:
+      delete_success: "Delete Success"
+      delete_fail: "Delete Fail"
+      cannot_delete: "You are not manager"
   layouts:
     application:
       base_title: "Daily Report Management"
@@ -59,6 +72,7 @@ en:
       login: "Log in"
       en: "En"
       vi: "Vi"
+      department: "My Department"
     footer:
       term: "Terms of Service"
       privacy: "Privacy"

@@ -25,11 +25,19 @@ vi:
       message_error: "Bản đăng kí có"
       error: "lỗi"
   users:
+    user:
+      delete: "|Xóa"
+      confirm: "Bạn có chắc chắn"
     infor:
+      id: "Mã nhân viên"
       name: "Họ tên"
       email: "Email"
       phone: "Số điện thoại"
       address: "Địa chỉ"
+      day_start: "Ngày bắt đầu"
+    index:
+      title: "Bộ phận của tôi"
+      create_user: "Tạo nhân viên mới"
     update:
       edit_fail: "Không được phép sửa tài khoản này"
     edit:
@@ -51,6 +59,11 @@ vi:
       confirm_password: "Xác nhận mật khẩu"
       phone: "Số điện thoại"
       address: "Địa chỉ"
+      day_start: "Ngày bắt đầu"
+    destroy:
+      delete_success: "Xóa thành công"
+      delete_fail: "Xóa thất bại"
+      cannot_delete: "Bạn không có quyền"
   layouts:
     application:
       base_title: "Hệ thống Báo cáo Hàng ngày"
@@ -60,6 +73,7 @@ vi:
       login: "Đăng nhập"
       en: "Tiếng Anh"
       vi: "Tiếng Việt"
+      department: "Bộ phận của tôi"
     footer:
       term: "Điều khoản dịch vụ"
       privacy: "Bảo mật"
