@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   def create
     if @user&.authenticate(params[:session][:password])
       log_in @user
-      redirect_to root_path
+      redirect_back_or @user
     else
       flash.now[:danger] = t ".flash_danger"
       render :new

@@ -12,7 +12,8 @@ class User < ApplicationRecord
                     format: {with: Settings.user.email_regex},
                     uniqueness: true
 
-  UPDATABLE_ATTRS = %i(name email password password_confirmation).freeze
+  UPDATABLE_ATTRS = %i(name email password password_confirmation phone
+address).freeze
 
   enum role: {member: 0, manager: 1, admin: 2}
 

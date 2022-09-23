@@ -3,6 +3,8 @@ user:
   max_name: 50
   max_email: 255
   min_password: 6
+edit:
+  link: "https://gravatar.com/emails"
 department:
   max_name: 50
 report:

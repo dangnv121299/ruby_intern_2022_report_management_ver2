@@ -17,13 +17,23 @@ en:
       password: "Password"
       new_user: "New User?"
     create:
-      activate_fail: "Đăng nhập thất bại"
-      flash_danger: "Sai thông tin đăng nhập"
+      activate_fail: "Login Failed"
+      flash_danger: "Wrong Password or Email"
   shared:
     error_messages:
       message_error: "This form has"
       error: "errors"
   users:
+    infor:
+      name: "Name"
+      email: "Email"
+      phone: "Phone"
+      address: "Address"
+    update:
+      edit_fail: "Can't update this account"
+    edit:
+      title: "Update account"
+      text: "Change"
     new:
       title: "Register"
       register: "Register"
@@ -38,6 +48,8 @@ en:
       email: "Email"
       password: "Password"
       confirm_password: "Confirm Password"
+      phone: "Phone"
+      address: "Address"
   layouts:
     application:
       base_title: "Daily Report Management"
