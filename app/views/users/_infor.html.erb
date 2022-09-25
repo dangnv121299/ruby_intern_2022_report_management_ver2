@@ -1,20 +1,41 @@
-<div class = "infor-group">
-  <%= t ".id" %>:
-  <span class="user-infor"><%= @user.id %></span>
-</div>
-<div class = "infor-group">
-  <%= t ".email" %>:
-  <span class="user-infor"><%= @user.email %></span>
-</div>
-<div class = "infor-group">
-  <%= t ".phone" %>:
-  <span class="user-infor"><%= @user.phone %></span>
-</div>
-<div class = "infor-group">
-  <%= t ".address" %>:
-  <span class="user-infor"><%= @user.address %></span>
-</div>
-<div class = "infor-group">
-  <%= t ".day_start" %>:
-  <span class="user-infor"><%= @user.day_start %></span>
-</div>
+<table class="table success">
+  <thead>
+    <tr>
+      <div class = "infor-group">
+        <th><%= t ".role" %></th>
+        <td>: <span class="user-infor"><%= @user.role.capitalize() %></span></td>
+      </div>
+    </tr>
+    <tr>
+      <div class = "infor-group">
+        <th><%= t ".id" %></th>
+        <td>: <span class="user-infor"><%= @user.id %></span></td>
+      </div>
+    </tr>
+    <tr>
+      <div class = "infor-group">
+        <th><%= t ".email" %></th>
+        <td>: <span class="user-infor"><%= @user.email %></span></td>
+      </div>
+    </tr>
+    <tr>
+      <div class = "infor-group">
+        <th><%= t ".phone" %></th>
+        <td>: <span class="user-infor"><%= @user.phone %></span></td>
+      </div>
+    </tr>
+    <tr>
+      <div class = "infor-group">
+        <th><%= t ".address" %></th>
+        <td>: <span class="user-infor"><%= @user.address %></span></td>
+      </div>
+    </tr>
+    <tr>
+      <div class = "infor-group">
+        <th><%= t ".day_start" %></th>
+        <td>: <span class="user-infor"><%= @user.day_start %></span></td>
+      </div>
+    </tr>
+
+  </thead>
+</table>

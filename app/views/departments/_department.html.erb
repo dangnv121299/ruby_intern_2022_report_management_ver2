@@ -1,0 +1,6 @@
+<li>
+  <%= link_to department.name, department_path(id: department) %>
+  <% if current_user.admin? %>
+    <%= link_to t(".delete"), department, method: :delete, data: {confirm: t(".confirm")} %>
+  <% end %>
+</li>

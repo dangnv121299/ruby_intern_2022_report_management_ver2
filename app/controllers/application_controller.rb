@@ -6,7 +6,9 @@ class ApplicationController < ActionController::Base
   private
 
   def check_role? role
-    current_user.send("#{role}?")
+    return if current_user.send("#{role}?")
+
+    redirect_to root_path
   end
 
   def set_locale

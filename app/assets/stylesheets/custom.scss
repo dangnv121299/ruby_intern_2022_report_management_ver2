@@ -22,6 +22,10 @@ textarea {
 .center h1 {
   margin-bottom: 10px;
 }
+
+h1 {
+  text-align: center;
+}
 /* header */
 
 #logo {
@@ -84,17 +88,15 @@ aside {
       line-height: 1;
     }
     h1 {
-      font-size: 1.4em;
+      font-size: 1.6em;
       text-align: left;
       letter-spacing: -1px;
       margin-bottom: 3px;
       margin-top: 0px;
+      font-weight: bold;
+      font-style: italic;
     }
   }
-}
-.gravatar {
-  float: left;
-  margin-right: 10px;
 }
 .gravatar_edit {
   margin-top: 15px;
@@ -110,12 +112,58 @@ aside {
 }
 
 /* infor */
-.users {
-    list-style: none;
-    margin: 0;
+.user-infor {
+  h1 {
+    display: block;
+  }
+  display: inline-block;
+  font-size: 115%;
+  font-style:oblique;
+  font-weight: bold;
+  color: rbg(25, 25, 25);
+}
+
+.reports {
+  list-style: none;
+  padding: 0;
   li {
-    overflow: auto;
     padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .gravatar {
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+.reports {
+  .content {
+    display: block;
+    margin-left: 60px;
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+}
+/* border table */
+.table {
+  border: 0;
+  padding: 0;
+  thead {
+    tr {
+      td {
+        border-top: 1px solid rgba(119, 119, 119, 0.171);
+        padding-right:0%;
+      }
+      th {
+        border-bottom: 0;
+        border-top: 0;
+      }
+    }
   }
 }

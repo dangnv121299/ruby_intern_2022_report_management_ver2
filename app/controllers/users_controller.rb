@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   before_action ->{check_role? :manager}, only: %i(new create destroy)
 
   def index
-    @pagy, @users = pagy(User.all, items: Settings.page_10)
+    @pagy, @users = pagy(User.sort_by_name, items: Settings.page_10)
   end
 
   def new
@@ -17,7 +17,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
-    @user.user_department_id = @current_user.id
     if @user.save
       flash[:info] = t ".create_success"
       redirect_to @user
