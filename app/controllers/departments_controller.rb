@@ -41,7 +41,6 @@ class DepartmentsController < ApplicationController
 
   def show
     @pagy, @users = pagy @department.users
-    @pagy, @user_departments = pagy(User.all, items: Settings.page_10)
   end
 
   private

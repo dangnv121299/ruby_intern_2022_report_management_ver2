@@ -1,0 +1,7 @@
+<% provide :title, t(".title") %>
+<h1><%= t ".title" %></h1>
+
+<ul class="reports">
+  <%= render @reports %>
+</ul>
+<%== pagy_bootstrap_nav(@pagy) %>

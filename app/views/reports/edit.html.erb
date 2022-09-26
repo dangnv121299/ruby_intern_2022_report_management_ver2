@@ -1,0 +1,12 @@
+<%= provide :title, t(".edit_report") %>
+<h2 class="title-center">
+  <%= t ".edit_report" %>
+</h2>
+
+<div class="div-edit-report">
+  <div class="div-date-report">
+    <%= t ".today" %>
+    <%= l(Time.now, format: :default) %>
+  </div>
+  <%= render "form", report: @report %>
+</div>

@@ -1,0 +1,19 @@
+<nav id="sidebar">
+  <div class="sidebar-header">
+    <% if logged_in? %>
+      <div id="avatar">
+        <%= gravatar_for @current_user %>
+      </div>
+      <div id="name">
+        <%= @current_user.name %>
+      </div>
+      <% if current_user.admin? %>
+        <li><%= link_to t(".department"), departments_path, class: "btn-lg btn-sidebar" %></li>
+      <% else %>
+        <li><%= link_to t(".department"), users_path, class: "btn-lg btn-sidebar"  %></li>
+      <% end %>
+      <li><%= link_to t(".report"), user_path(id: current_user), class: "btn-lg btn-sidebar"  %></li>
+      <li><%= link_to t(".settings"), edit_user_url(id: current_user), class: "btn-lg btn-sidebar"  %></li>
+    <% end %>
+  </div>
+</nav>

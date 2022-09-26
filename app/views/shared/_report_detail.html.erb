@@ -1,0 +1,46 @@
+<div class="user-info report-detail col-md-12">
+  <div class="col-md-10">
+    <div class="col-md-12 box-info">
+      <span>
+        <%= t ".name" %>:
+      </span>
+      <%= user.name %>
+    </div>
+    <div class="col-md-12 box-info">
+      <span>
+        <%= t ".email" %>:
+      </span>
+      <%= user.email %>
+    </div>
+  </div>
+</div>
+<div class="report-detail col-md-12">
+  <div class="col-md-12 box-info">
+    <p>
+      <%= t ".plan_today" %>
+    </p>
+    <%= report.plan_today %>
+  </div>
+  <div class="col-md-12 box-info">
+    <p>
+      <%= t ".reality" %>
+    </p>
+    <%= report.reality %>
+  </div><div class="col-md-12 box-info">
+    <p>
+      <%= t ".reason" %>
+    </p>
+    <%= report.reason %>
+  </div><div class="col-md-12 box-info">
+    <p>
+      <%= t ".plan_next_day" %>
+    </p>
+    <%= report.plan_next_day %>
+  </div>
+  <div class="col-md-12 box-info">
+    <p>
+      <%= t ".date_created" %>
+    </p>
+    <%= report.created_at.strftime Settings.reports.report.format_date %>
+  </div>
+</div>

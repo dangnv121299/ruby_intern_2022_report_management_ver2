@@ -1,0 +1,10 @@
+<% provide :title, t(".title") %>
+<div class="create-manager">
+  <%= form_tag department_add_user_to_department_path(id: @department.id) do %>
+    <div class="form-group">
+      <%= label_tag t(".name") %>
+      <%= select_tag "user_ids[]", options_for_select(User.pluck(:name, :id)), multiple: true %>
+    </div>
+    <%= submit_tag (t ".create"), class: "btn btn-success btn-lg btn-block" %>
+  <% end %>
+</div>

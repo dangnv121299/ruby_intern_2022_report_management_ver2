@@ -1,7 +1,10 @@
 class ReportsController < ApplicationController
   before_action :logged_in_user
+  before_action :find_report, only: :show
 
-  def show; end
+  def show
+    @user = @report.user
+  end
 
   def new
     @report = current_user.reports.build
@@ -23,5 +26,12 @@ class ReportsController < ApplicationController
 
   def report_params
     params.require(:report).permit Report::UPDATABLE_ATTRS
+  end
+
+  def find_report
+    @report = Report.find_by id: params[:id]
+    return if @report
+
+    flash[:danger] = t ".find_report"
   end
 end

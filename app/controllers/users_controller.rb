@@ -3,9 +3,8 @@ class UsersController < ApplicationController
                 except: %i(new create)
   before_action :find_user,
                 except: %i(new create index)
-  before_action :correct_user, only: %i(edit update)
-
-  before_action ->{check_role? :manager}, only: %i(new create destroy)
+  before_action :check_edit_role, only: %i(edit update)
+  before_action :check_create_role, only: %i(new create destroy)
 
   def index
     @pagy, @users = pagy(User.sort_by_name, items: Settings.page_10)
@@ -13,10 +12,12 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.user_departments.build
   end
 
   def create
     @user = User.new user_params
+
     if @user.save
       flash[:info] = t ".create_success"
       redirect_to @user
@@ -27,10 +28,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    @pagy, @reports = pagy @user.reports
+    @pagy, @reports = pagy @user.reports.sort_by_time
   end
 
-  def edit; end
+  def edit
+    return unless current_user.manager? && !current_user?(user)
+
+    @user.user_departments.build
+  end
 
   def update
     if @user.update user_params
@@ -52,16 +57,25 @@ class UsersController < ApplicationController
 
   def user_params
     if current_user.manager?
-      params.require(:user).permit User::UPDATABLE_ATTRS_MANAGER
+      params.require(:user).permit User::UPDATABLE_ATTRS_MANAGER,
+                                   user_departments_attributes:
+                                   UserDepartment::UPDATABLE_ATTRS
     else
       params.require(:user).permit User::UPDATABLE_ATTRS
     end
   end
 
-  def correct_user
-    return if current_user?(@user)
+  def check_edit_role
+    return if current_user?(@user) || current_user.manager?
 
     flash[:error] = t ".edit_fail"
-    redirect_to root_url
+    redirect_to root_path
+  end
+
+  def check_create_role
+    return if current_user.manager? || current_user.admin?
+
+    flash[:error] = t ".create_fail"
+    redirect_to root_path
   end
 end

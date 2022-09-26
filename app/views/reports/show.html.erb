@@ -2,8 +2,7 @@
 <h1>
   <%= t ".report" %>
 </h1>
-<div class="div-report-filter">
-</div>
+<%= render "shared/report_detail", report: @report, user: @user %>
 <div class="div-create-bth">
   <%= link_to t(".create"), new_report_path %>
 </div>

@@ -1,5 +1,5 @@
 class UserDepartment < ApplicationRecord
-  UPDATABLE_ATTRS = %i(name department_id user_id).freeze
+  UPDATABLE_ATTRS = [:name, :department_id, {user_ids: []}].freeze
 
   belongs_to :department
   belongs_to :user

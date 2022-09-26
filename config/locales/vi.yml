@@ -1,7 +1,17 @@
 vi:
+  user_departments:
+    new:
+      title: "Thêm mới Quản lý"
+      name: "Tên"
+      flash: "Vui lòng chọn ít nhất 1 người"
+      create: "Tạo"
   departments:
     index:
       title: "Danh mục các bộ phận"
+    show:
+      manager_list: "Quản lý"
+      member_list: "Thành viên"
+      add_user: "Thêm mới nhân viên"
     new:
       create_department: "Tạo bộ phận mới"
       name: "Tên"
@@ -94,3 +104,6 @@ vi:
     home:
       title: "Trang chủ"
       home_content: "Đây là trang chủ của hệ thống Báo cáo hàng ngày của Sun Asterisk Việt Nam"
+  date:
+    formats:
+      default: "%Y-%m-%d"

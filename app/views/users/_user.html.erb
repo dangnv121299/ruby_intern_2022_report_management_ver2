@@ -1,7 +1,11 @@
 <li>
   <%= gravatar_for user, size: Settings.digit_50 %>
   <%= link_to user.name, user_path(id: user) %>
+  <span class="staff_id">
+    <%= user.id %>
+  </span>
   <% if current_user.manager? && !current_user?(user) %>
     <%= link_to t(".delete"), user, method: :delete, data: {confirm: t(".confirm")} %>
+    <%= link_to t(".edit"), edit_user_path(id: user) %>
   <% end %>
 </li>

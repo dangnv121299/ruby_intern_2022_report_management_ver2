@@ -10,6 +10,8 @@ department:
 report:
   max_length: 510
 reports:
+  report:
+    format_date: "%d/%m/%Y"
   new:
     datetime: "%d/%m/%Y"
 form:

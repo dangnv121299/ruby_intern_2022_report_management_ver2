@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     delete "/logout", to: "sessions#destroy"
     resources :users
     resources :reports, except: %i(index destroy)
-    resources :departments
+    resources :departments do
+      resources :user_departments, except: :create
+      post "add_user", to: "user_departments#create", as: "add_user_to_department"
+    end
   end
 end

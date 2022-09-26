@@ -46,7 +46,8 @@ users = User.order(:created_at).take(6)
       plan_today: content,
       reality: content,
       reason: content,
-      plan_next_day: content
+      plan_next_day: content,
+      user_id: user.id
     )
   }
 end
