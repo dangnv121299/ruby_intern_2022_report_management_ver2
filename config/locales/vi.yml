@@ -1,4 +1,13 @@
 vi:
+  departments:
+    index:
+      title: "Danh mục các bộ phận"
+    new:
+      create_department: "Tạo bộ phận mới"
+      name: "Tên"
+    department:
+      delete: "|Xóa"
+      confirm: "Bạn có chắc chắn muốn xóa"
   reports:
     show:
       report: "Báo cáo hàng ngày"
@@ -29,6 +38,7 @@ vi:
       delete: "|Xóa"
       confirm: "Bạn có chắc chắn"
     infor:
+      role: "Cấp bậc"
       id: "Mã nhân viên"
       name: "Họ tên"
       email: "Email"
@@ -73,7 +83,7 @@ vi:
       login: "Đăng nhập"
       en: "Tiếng Anh"
       vi: "Tiếng Việt"
-      department: "Bộ phận của tôi"
+      department: "Quản lý bộ phận"
     footer:
       term: "Điều khoản dịch vụ"
       privacy: "Bảo mật"

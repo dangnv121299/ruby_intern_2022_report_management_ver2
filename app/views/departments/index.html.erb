@@ -1,0 +1,7 @@
+<% provide :title, t(".title") %>
+<h1><%= t".title" %></h1>
+<h4><%= link_to t(".create_department"), new_department_path %></h4>
+<ul class = "users">
+  <%= render @departments %>
+</ul>
+<%== pagy_bootstrap_nav(@pagy) %>

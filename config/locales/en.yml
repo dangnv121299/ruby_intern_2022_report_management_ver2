@@ -1,4 +1,13 @@
 en:
+  departments:
+    index:
+      title: "List of Departments"
+    new:
+      create_department: "Create a new department"
+      name: "Name"
+    department:
+      delete: "|Delete"
+      confirm: "You sure"
   reports:
     show:
       report: "Daily Report"
@@ -28,6 +37,7 @@ en:
       delete: "|Delete"
       confirm: "You sure?"
     infor:
+      role: "Rank"
       id: "Id staff"
       name: "Name"
       email: "Email"
@@ -72,7 +82,7 @@ en:
       login: "Log in"
       en: "En"
       vi: "Vi"
-      department: "My Department"
+      department: "Manage Department"
     footer:
       term: "Terms of Service"
       privacy: "Privacy"
