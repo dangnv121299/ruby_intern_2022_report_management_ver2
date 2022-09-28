@@ -4,8 +4,10 @@ class User < ApplicationRecord
   UPDATABLE_ATTRS = %i(name email password password_confirmation phone
                        address).freeze
 
-  has_many :user_department, dependent: :destroy
+  has_many :user_departments, dependent: :destroy
   has_many :reports, dependent: :destroy
+
+  accepts_nested_attributes_for :user_departments
 
   has_secure_password
   validates :password, presence: true,

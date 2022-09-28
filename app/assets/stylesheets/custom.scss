@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "color";
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -8,7 +9,12 @@
 }
 
 body {
+  margin-left: 200px;
   padding-top: 60px;
+  background-image: url(profile.png);
+  background-repeat: no-repeat;
+  background-size: fixed;
+  background-position: center;
 }
 section {
   overflow: auto;
@@ -42,6 +48,13 @@ h1 {
   color: #fff;
   text-decoration: none;
 }
+header {
+  background-image: linear-gradient(to bottom right, rgb(14, 10, 10), rgb(88, 88, 75));
+  li {
+    font-size: 110%;
+    color: #fff;
+  }
+}
 /* footer */
 
 footer {
@@ -65,6 +78,10 @@ input, textarea, select, .uneditable-input {
   margin-bottom: 15px;
   @include box_sizing;
 }
+.field-group input {
+  border-radius: 3px;
+  line-height: 34px;
+}
 input {
   height: auto !important;
 }
@@ -73,7 +90,13 @@ input {
 
 aside {
   section.user_infor {
+    h1 {
+      text-align: center;
+      background-color: rgba(255, 251, 251, 0.678);
+    }
     margin-top: 20px;
+    background-color: rgba(177, 172, 172, 0.253);
+    border-radius: 10px;
   }
   section {
     padding: 10px 0;
@@ -103,11 +126,25 @@ aside {
 }
 .users {
   list-style: none;
-  margin: 0;
+  margin-left: 200px;
+  margin-right: 200px;
   li {
+    border-radius: 2%;
+    background-color: rgba(162, 207, 174, 0.295);
     overflow: auto;
-    padding: 10px 0;
+    padding: 10px 10px;
+    margin-top: 10px;
     border-bottom: 1px solid $gray-lighter;
+    .staff_id {
+     float: right;
+     padding-top: 15px;
+    }
+    &:hover,
+    &:active {
+      background-color: rgba(156, 155, 155, 0.267);
+      transform: scale(1.1);
+      transform: all 0.1s;
+    }
   }
 }
 
@@ -126,9 +163,14 @@ aside {
 .reports {
   list-style: none;
   padding: 0;
+  background-color: #e8e8e82a;
   li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
+    .time {
+      float: right;
+      margin-top: 15px;
+    }
   }
   .user {
     margin-top: 5em;
@@ -164,6 +206,108 @@ aside {
         border-bottom: 0;
         border-top: 0;
       }
+    }
+  }
+}
+.report-detail {
+  margin-bottom: 30px;
+  p, span {
+    font-weight: bold;
+  }
+
+  .box-info {
+    margin-bottom: 5px;
+    padding: 25px;
+    border-bottom: 1px solid rgba(4,9,20,0.05);
+    background-color: rgba(220, 226, 222, 0.349);
+    border-radius: 10px;
+  }
+  .col-md-10 {
+    text-align: center;
+    margin-left: 90px;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 10px;
+  }
+}
+.btn-success {
+  color: #fff;
+  background-color: #4454e9;
+  border-color: #4454e9;
+  &:active,
+  &:hover {
+    background-color: #bbb;
+  }
+}
+.btn-lg {
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+}
+.btn-sidebar {
+  width: 80px;
+  background-color: transparent;
+  padding: 20px;
+  &:active,
+  &:hover {
+    background-color: transparent;
+  }
+  &.btn-success {
+    background-color: transparent;
+    border-color: transparent;
+  }
+}
+
+.department_list {
+  margin-left: 120px;
+  margin-right: 120px;
+  border-bottom: 2px solid rgba(4, 9, 20, 0.219);
+  font-size: 130%;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+#sidebar {
+  padding-top: 10px;
+  margin-top: 50px;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 999;
+  float: left;
+  background: $sidebar-background;
+  color: $sidebar-color;
+  transition: all 0.3s;
+}
+#sidebar.active {
+  margin-left: -250px;
+}
+#sidebar .sidebar-header {
+  padding: 20px;
+  background: $sidebar-background;
+  list-style: none;
+  #avatar {
+    text-align: center;
+    display: block;
+    border-radius: 50%;
+  }
+  #name {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 150%;
+    font-weight: bold;
+  }
+  li {
+    color: white;
+    text-decoration: none !important;
+    display: block;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    &:hover,
+    &:active {
+      border-radius: 5%;
+      background-color: rgb(31, 162, 167);
     }
   }
 }

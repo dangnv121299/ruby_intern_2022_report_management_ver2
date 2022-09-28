@@ -21,6 +21,17 @@
     <%= f.date_field :day_start, class: "form-control", placeholder: t(".day_start") %>
   </div>
 
+  <div class="field-group">
+    <%= f.fields_for :user_departments do |ud| %>
+      <%= ud.label :name %>
+      <%= ud.text_field :name %>
+      <%= ud.label :department_id %>
+      <%= ud.text_field :department_id %>
+      <%= ud.label :user_id %>
+      <%= ud.text_field :user_id %>
+    <% end %>
+  </div>
+
   <% if current_user.present? %>
     <div class="form-group">
       <%= f.label t(".phone") %>

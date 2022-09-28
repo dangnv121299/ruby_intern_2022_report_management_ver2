@@ -1,7 +1,17 @@
 en:
+  user_departments:
+    new:
+      title: "Create new Manager"
+      name: "Name of manager"
+      flash: "Please choose manager"
+      create: "Create"
   departments:
     index:
       title: "List of Departments"
+    show:
+      manager_list: "Managers"
+      member_list: "Members"
+      add_user: "Add user to Department"
     new:
       create_department: "Create a new department"
       name: "Name"
@@ -93,3 +103,6 @@ en:
     home:
       title: "Home"
       home_content: "This is report management of Sun Asterisk Vietnam"
+  date:
+    formats:
+      default: "%Y-%m-%d"

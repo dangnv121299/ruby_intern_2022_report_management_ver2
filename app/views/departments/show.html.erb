@@ -1,5 +1,18 @@
 <% provide :title, @department.name %>
 <h1><%= @department.name %></h1>
+<h4><%= link_to t(".create_user") , signup_path, class: "btn btn-success btn-lg btn-create" %></h4>
+<h4><%= link_to t(".add_user") , new_department_user_department_path(department_id: @department.id ), class: "btn btn-success btn-lg btn-create" %></h4>
+
+<div class="department_list">
+  <%= t ".manager_list" %>
+</div>
 <ul class="users">
-  <%= render @users %>
+  <%= render partial: "users/user", collection: @users.manager, as: :user %>
 </ul>
+<div class="department_list">
+  <%= t ".member_list" %>
+</div>
+<ul class="users">
+  <%= render partial: "users/user", collection: @users.member, as: :user %>
+</ul>
+<%== pagy_bootstrap_nav(@pagy) %>

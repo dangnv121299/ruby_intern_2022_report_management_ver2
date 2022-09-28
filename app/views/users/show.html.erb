@@ -12,6 +12,7 @@
   <div class="col-md-8">
     <% if @reports.any? %>
       <h3>(<%= @pagy.count %>)</h3>
+        <%= link_to t(".create_report"), new_report_url, class: "btn btn-success btn-lg btn-block"%>
         <ol class="reports">
           <%= render @reports %>
         </ol>

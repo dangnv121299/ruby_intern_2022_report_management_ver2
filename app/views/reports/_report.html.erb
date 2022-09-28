@@ -1,10 +1,8 @@
 <li id="report-<%= report.id %>">
   <%= link_to gravatar_for(report.user, size: Settings.digit_50), report.user %>
-  <span class="user"><%= link_to report.user_name, report.user %></span>
+  <span class="user"><%= link_to report.user_name, report %></span>
   <span class="plan_today"><%= report.plan_today %></span>
-  <span class="reality"><%= report.reality %></span>
-  <span class="reason"><%= report.reason %></span>
-  <span class="plan_next_day"><%= report.plan_next_day %></span>
+  <span class="time"><%= report.created_at %></span>
   <span class="timestamp">
   <%= time_ago_in_words report.created_at %>
   </span>
