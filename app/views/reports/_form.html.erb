@@ -1,5 +1,21 @@
-<%= form_for report do |f| %>
+<%= form_for @report do |f| %>
   <%= render "shared/error_messages", object: f.object %>
+  <% if current_user.manager? %>
+    <div class="form-group">
+      <%= f.label t(".comment") %>
+      <%= f.text_area :comment, class: "form-control", row: Settings.form.create_form.num_row %>
+    </div>
+    <div class="form-group choose-status">
+      <%= f.label t(".status") %>
+      <%= f.select :status, Report.statuses.keys %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label t(".receiver") %>
+    <span class="require-field">*</span>
+    <%= f.select :department_id, options_for_select(current_department current_user) %>
+  </div>
   <div class="form-group">
     <%= f.label t(".plan_today") %>
     <span class="require-field">*</span>

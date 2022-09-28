@@ -4,4 +4,5 @@ class UserDepartment < ApplicationRecord
   belongs_to :department
   belongs_to :user
   has_many :reports, dependent: :destroy
+  scope :by_id, ->(department_id){where department_id: department_id}
 end

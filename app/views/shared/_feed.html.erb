@@ -1,0 +1,6 @@
+<% if @feed_items.try(:any?) %>
+  <ol class="reports">
+    <%= render @feed_items %>
+  </ol>
+  <%== pagy_bootstrap_nav(@pagy) %>
+<% end %>

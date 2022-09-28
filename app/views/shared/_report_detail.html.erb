@@ -12,6 +12,12 @@
       </span>
       <%= user.email %>
     </div>
+    <div class="col-md-12 color color-<%= report.status %>">
+      <span>
+        <%= t ".status" %>:
+      </span>
+      <%= report.status %>
+    </div>
   </div>
 </div>
 <div class="report-detail col-md-12">
@@ -42,5 +48,11 @@
       <%= t ".date_created" %>
     </p>
     <%= report.created_at.strftime Settings.reports.report.format_date %>
+  </div>
+  <div class="col-md-12 box-info">
+    <p>
+      <%= t ".comment" %>
+    </p>
+    <%= report.comment %>
   </div>
 </div>
