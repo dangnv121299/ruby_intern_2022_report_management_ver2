@@ -103,6 +103,8 @@ en:
     home:
       title: "Home"
       home_content: "This is report management of Sun Asterisk Vietnam"
+      department_report: "List of department reports"
+      my_report: "List of my reports"
   date:
     formats:
       default: "%Y-%m-%d"

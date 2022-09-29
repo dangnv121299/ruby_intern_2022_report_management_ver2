@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
   def home
     return unless logged_in?
 
-    @report = current_user.reports.build
+    @pagy, @reports = pagy Report.by_user_id(current_user.id)
     @pagy, @feed_items = pagy current_user.feed
   end
 
