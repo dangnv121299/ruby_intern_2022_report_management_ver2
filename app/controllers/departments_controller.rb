@@ -1,6 +1,6 @@
 class DepartmentsController < ApplicationController
   before_action ->{check_role? :admin}
-  before_action :load_department, only: :show
+  before_action :load_department, only: %i(show destroy)
 
   def index
     @pagy, @departments = pagy(Department.sort_by_name)
@@ -34,6 +34,7 @@ class DepartmentsController < ApplicationController
   def destroy
     if @department.destroy
       flash[:success] = t ".delete_success"
+      redirect_to departments_path
     else
       flash[:danger] = t ".delete_fail"
     end

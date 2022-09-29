@@ -28,14 +28,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    @pagy, @reports = pagy @user.reports.sort_by_time
+    if current_user.manager? || @user == current_user
+      @pagy, @reports = pagy @user.reports.sort_by_time
+    else
+      @reports = []
+    end
   end
 
-  def edit
-    return unless current_user.manager? && !current_user?(user)
-
-    @user.user_departments.build
-  end
+  def edit; end
 
   def update
     if @user.update user_params

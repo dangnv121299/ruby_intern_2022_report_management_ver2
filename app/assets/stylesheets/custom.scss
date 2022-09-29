@@ -183,13 +183,16 @@ aside {
 }
 .reports {
   .content {
-    display: block;
     margin-left: 60px;
   }
   .timestamp {
     color: $gray-light;
-    display: block;
     margin-left: 60px;
+  }
+  .status {
+    padding: 18px;
+    border-radius: 8%;
+
   }
 }
 /* border table */
@@ -209,12 +212,34 @@ aside {
     }
   }
 }
+.report-table {
+  td {
+    &.user {
+      width: 150px;
+    }
+    &.plan_today {
+      width: 250px;
+    }
+    &.time {
+      width: 150px;
+    }
+    &.edit {
+      text-align: center;
+      width: 150px;
+    }
+  }
+}
 .report-detail {
   margin-bottom: 30px;
   p, span {
     font-weight: bold;
   }
-
+  .color {
+    margin-bottom: 5px;
+    padding: 25px;
+    border-bottom: 1px solid rgba(4,9,20,0.05);
+    border-radius: 10px;
+  }
   .box-info {
     margin-bottom: 5px;
     padding: 25px;
@@ -228,6 +253,15 @@ aside {
     background-color: rgba(255, 255, 255, 0);
     border-radius: 10px;
   }
+}
+.color-pending {
+  background-color: rgba(255, 230, 4, 0.753);
+}
+.color-approved {
+  background-color: rgba(30, 255, 0, 0.753);
+}
+.color-rejected {
+  background-color: rgba(255, 0, 0, 0.753);
 }
 .btn-success {
   color: #fff;

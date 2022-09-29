@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :user_departments, dependent: :destroy
   has_many :reports, dependent: :destroy
+  has_many :departments, through: :user_departments
 
   accepts_nested_attributes_for :user_departments
 
@@ -34,5 +35,9 @@ class User < ApplicationRecord
     def new_token
       SecureRandom.urlsafe_base64
     end
+  end
+
+  def feed
+    Report.newest
   end
 end

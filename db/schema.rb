@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_23_102649) do
+ActiveRecord::Schema.define(version: 2022_09_28_034847) do
 
   create_table "departments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2022_09_23_102649) do
     t.bigint "user_id"
     t.bigint "user_department_id"
     t.bigint "department_id"
+    t.string "comment"
     t.index ["department_id"], name: "index_reports_on_department_id"
     t.index ["user_department_id"], name: "index_reports_on_user_department_id"
     t.index ["user_id"], name: "index_reports_on_user_id"
