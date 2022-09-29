@@ -19,6 +19,8 @@ class User < ApplicationRecord
   validates :email, presence: true, length: {maximum: Settings.user.max_email},
                     format: {with: Settings.user.email_regex},
                     uniqueness: true
+  scope :by_name, ->(name){where(name: name)}
+  scope :by_id, ->(ids){where id: ids}
 
   enum role: {member: 0, manager: 1, admin: 2}
 

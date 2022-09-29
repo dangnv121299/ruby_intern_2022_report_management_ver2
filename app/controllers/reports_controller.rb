@@ -14,6 +14,7 @@ class ReportsController < ApplicationController
     @report = current_user.reports.build report_params
 
     if @report.save
+      UserMailer.account_notification(@report).deliver_now
       flash[:info] = t ".create_success_notify"
       redirect_to current_user
     else
@@ -26,6 +27,7 @@ class ReportsController < ApplicationController
 
   def update
     if @report.update report_params
+      check_sent_email
       redirect_to report_path(id: @report.id)
       flash[:success] = t ".update_success_report"
     else
@@ -37,7 +39,7 @@ class ReportsController < ApplicationController
   private
 
   def report_params
-    if current_user.manager?
+    if check_manager(current_user, @report)
       params.require(:report).permit Report::UPDATABLE_ATTRS_MANAGER
     else
       params.require(:report).permit Report::UPDATABLE_ATTRS
@@ -49,5 +51,13 @@ class ReportsController < ApplicationController
     return if @report
 
     flash[:danger] = t ".find_report"
+  end
+
+  def check_sent_email
+    if @current_user.id == @report.user_id
+      UserMailer.account_notification(@report).deliver_now
+    else
+      UserMailer.respond_report(@report).deliver_now
+    end
   end
 end
