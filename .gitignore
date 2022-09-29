@@ -67,6 +67,7 @@ yarn-debug.log*
 !/storage/.keep
 
 /config/database.yml
+/config/application.yml
 
 .framgia-ci-reports/rubocop.xml
 .framgia-ci-result.temp.yml

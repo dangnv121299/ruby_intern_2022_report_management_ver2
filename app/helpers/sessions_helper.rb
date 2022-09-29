@@ -11,6 +11,10 @@ module SessionsHelper
     user && user == current_user
   end
 
+  def current_manager?
+    return true if current_user.manager?
+  end
+
   def logged_in?
     current_user.present?
   end

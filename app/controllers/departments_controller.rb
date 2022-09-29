@@ -1,5 +1,5 @@
 class DepartmentsController < ApplicationController
-  before_action ->{check_role? :admin}
+  before_action ->{check_role? :admin}, only: %i(new create)
   before_action :load_department, only: %i(show destroy)
 
   def index

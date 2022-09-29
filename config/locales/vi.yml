@@ -104,6 +104,8 @@ vi:
     home:
       title: "Trang chủ"
       home_content: "Đây là trang chủ của hệ thống Báo cáo hàng ngày của Sun Asterisk Việt Nam"
+      department_report: "Báo cáo trong bộ phận"
+      my_report: "Báo cáo của tôi"
   date:
     formats:
       default: "%Y-%m-%d"

@@ -38,6 +38,6 @@ class User < ApplicationRecord
   end
 
   def feed
-    Report.newest
+    Report.newest.by_department_id departments.pluck(:id)
   end
 end
