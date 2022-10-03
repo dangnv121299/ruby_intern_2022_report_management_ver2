@@ -1,4 +1,18 @@
 en:
+  user_mailer:
+    account_notification:
+      account_notification: "You has a report submitted right now"
+      title: "A report to Your Department"
+      hi: "Hi"
+      greeting: "You has a report submitted to your department. Let's check it right now."
+      link: "This is a link to the report."
+  user_mailer:
+    respond_report:
+      respond_report: "You has a report checked right now"
+      title: "Your report has been checked!"
+      hi: "Hi"
+      greeting: "You has a report checked by your department. Let's check it right now."
+      link: "This is a link to the report."
   user_departments:
     new:
       title: "Create new Manager"

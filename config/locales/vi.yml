@@ -1,4 +1,18 @@
 vi:
+  user_mailer:
+    account_notification:
+      account_notification: "Bạn có một bản báo cáo vừa được gửi"
+      title: "Báo cáo tới bộ phận của bạn"
+      hi: "Xin chào"
+      greeting: "Bạn có một bản báo cáo vừa được gửi. Hãy kiểm tra bản báo cáo ngay!."
+      link: "Nhấp vào đây để tới đường dẫn."
+  user_mailer:
+    respond_report:
+      respond_report: "Bạn có một bản báo cáo vừa được xem."
+      title: "Báo cáo của bạn vừa được bộ phận kiểm tra và phản hồi."
+      hi: "Xin chào"
+      greeting: "Bạn có một bản báo cáo vừa được phản hồi. Hãy kiểm tra bản báo cáo ngay!."
+      link: "Nhấp vào đây để tới đường dẫn."
   user_departments:
     new:
       title: "Thêm mới Quản lý"
