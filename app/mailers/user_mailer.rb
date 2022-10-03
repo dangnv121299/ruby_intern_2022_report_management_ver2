@@ -1,11 +1,8 @@
 class UserMailer < ApplicationMailer
-  def account_notification report
+  def account_notification report, user
     @report = report
-    @manager_id = report.department.user_departments.manager.pluck(:user_id)
-    @users = User.by_id @manager_id
-    @users.each do |user|
-      mail to: user.email, subject: t(".account_notification")
-    end
+    @user = user
+    mail to: @user.email, subject: t(".account_notification")
   end
 
   def respond_report report

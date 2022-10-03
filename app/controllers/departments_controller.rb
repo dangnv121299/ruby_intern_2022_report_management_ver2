@@ -1,6 +1,6 @@
 class DepartmentsController < ApplicationController
   before_action ->{check_role? :admin}, only: %i(new create)
-  before_action :load_department, only: %i(show destroy)
+  before_action :load_department, except: %i(index new create)
 
   def index
     @pagy, @departments = pagy(Department.sort_by_name)
@@ -25,7 +25,7 @@ class DepartmentsController < ApplicationController
 
   def update
     if @department.update department_params
-      redirect_to root_path
+      redirect_to @department
     else
       render :edit
     end

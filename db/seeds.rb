@@ -32,22 +32,9 @@ manager = UserDepartment.create!(
     role: :member
   )
   UserDepartment.create!(
-    name: "Example User",
     role: :manager,
     department_id: department.id,
     user_id: mem.id
   )
 
-end
-users = User.order(:created_at).take(6)
-  10.times do |n|
-  content = "example-#{n+1}@report.org"
-  users.each { |user| user.reports.create!(
-      plan_today: content,
-      reality: content,
-      reason: content,
-      plan_next_day: content,
-      user_id: user.id
-    )
-  }
 end

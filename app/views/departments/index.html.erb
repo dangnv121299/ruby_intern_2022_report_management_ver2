@@ -1,6 +1,8 @@
 <% provide :title, t(".title") %>
 <h1><%= t".title" %></h1>
-<h4><%= link_to t(".create_department"), new_department_path, class: "btn btn-success btn-lg btn-create" %></h4>
+<% if current_user.admin? %>
+  <h4><%= link_to t(".create_department"), new_department_path, class: "btn btn-success btn-lg btn-create" %></h4>
+<% end %>
 <ul class = "users">
   <%= render @departments %>
 </ul>

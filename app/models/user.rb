@@ -38,8 +38,4 @@ class User < ApplicationRecord
       SecureRandom.urlsafe_base64
     end
   end
-
-  def feed
-    Report.newest.by_department_id departments.pluck(:id)
-  end
 end

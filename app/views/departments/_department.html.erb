@@ -1,6 +1,13 @@
 <li>
-  <%= link_to department.name, department_path(id: department) %>
-  <% if current_user.admin? %>
-    <%= link_to t(".delete"), department, method: :delete, data: {confirm: t(".confirm")} %>
-  <% end %>
+  <table>
+    <tbody>
+      <tr>
+        <td id="width-40"><span><%= link_to department.name, department_path(id: department) %></span></td>
+        <% if current_user.admin? %>
+          <td id="width-30"><span><%= link_to t(".delete"), department, method: :delete, data: {confirm: t(".confirm")} %></span></td>
+          <td id="width-30"><span><%= link_to t(".edit"), edit_department_url(id: department) %></span></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
 </li>

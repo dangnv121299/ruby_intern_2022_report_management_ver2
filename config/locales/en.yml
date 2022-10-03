@@ -6,7 +6,6 @@ en:
       hi: "Hi"
       greeting: "You has a report submitted to your department. Let's check it right now."
       link: "This is a link to the report."
-  user_mailer:
     respond_report:
       respond_report: "You has a report checked right now"
       title: "Your report has been checked!"
@@ -14,14 +13,33 @@ en:
       greeting: "You has a report checked by your department. Let's check it right now."
       link: "This is a link to the report."
   user_departments:
+    edit:
+      title: "Change role of this user"
+      role: "Role"
+      create: "Change"
     new:
       title: "Create new Manager"
       name: "Name of manager"
       flash: "Please choose manager"
       create: "Create"
+    update:
+      update_manager: "Add the employee success"
+      update_fail: "Add the employee failure"
+    destroy:
+      delete_success: "Delete the employee from this department success"
+      delete_fail: "Delete the employee from this department failure"
   departments:
+    create:
+      create_success: "Create success"
+      create_fail: "Create fail"
+    destroy:
+      delete_success: "Delete success"
+      delete_fail: "Delete fail"
+    form:
+      name: "Name of this department"
     index:
       title: "List of Departments"
+      create_department: "Create a new department"
     show:
       manager_list: "Managers"
       member_list: "Members"
@@ -30,33 +48,66 @@ en:
       create_department: "Create a new department"
       name: "Name"
     department:
-      delete: "|Delete"
+      delete: "     |Delete"
+      edit: "     |Edit"
       confirm: "You sure"
+    edit:
+      edit_department: "Edit this department"
+    user_department:
+      delete: "     |Delete"
+      edit: "     |Edit"
+      confirm: "Confirm that you want to delete this user's department"
   reports:
+    report:
+      name: "Name"
+      plan_today: "Plan of Today"
+      status: "Status"
+      time: "Last format"
+      edit: "Edit"
+      time_create: "Created at"
+      time_update: "Last updated at"
+      department_received: "Department received"
     show:
       report: "Daily Report"
       create: "Create"
     form:
+      comment: "Note"
+      status: "Status"
       receiver: "Receiver"
       plan_today: "Plan today"
       reality: "Reality"
       reason: "Reason"
       plan_next_day: "Plan next day"
       create: "Create"
+    new:
+      create_report: "Create a new report"
+    edit:
+      edit_report: "Edit this report"
+    create:
+      create_success: "Tạo báo cáo thành công, xem chi tiết bên dưới."
+      create_fail: "Tạo báo cáo thất bại, hãy thử lại."
+    update:
+      update_success: "Cập nhật báo cáo thành công"
+      update_fail: "Cập nhật thất bại"
   sessions:
     new:
       title: "Login"
       email: "Email"
       password: "Password"
       new_user: "New User?"
+      signup: "Sign Up Now"
     create:
       activate_fail: "Login Failed"
-      flash_danger: "Wrong Password or Email"
+      login_success: "Login success"
+      login_fail: "Wrong information"
+      find_error: "Unexist this email"
   shared:
     error_messages:
       message_error: "This form has"
       error: "errors"
   users:
+    show:
+      find_user: "This user is not exiting, please try again later."
     user:
       delete: "|Delete"
       confirm: "You sure?"
@@ -93,6 +144,10 @@ en:
       phone: "Phone"
       address: "Address"
       day_start: "Day Start"
+      placeholder_name: "Nguyễn Văn A"
+      placeholder_email: "example@example.com"
+      placeholder_phone: "0123456789"
+      placeholder_address: "Phương Liên, Đống Đa, Hà Nội"
     destroy:
       delete_success: "Delete Success"
       delete_fail: "Delete Fail"
@@ -104,12 +159,19 @@ en:
       home: "Home"
       help: "Help"
       login: "Log in"
+      logout: "Log out"
       en: "En"
       vi: "Vi"
       department: "Manage Department"
     footer:
       term: "Terms of Service"
       privacy: "Privacy"
+    sidebar:
+      department: "Departments"
+      report: "My profile"
+      settings: "Settings"
+      create_report: "Report Now"
+      create_user: "Create User"
   static_pages:
     help:
       title: "Help"

@@ -4,14 +4,13 @@
     <nav>
       <ul class = "nav navbar-nav navbar-right">
         <li><%= link_to t(".home"), static_pages_home_path %></li>
-        <li><%= link_to t(".help"), static_pages_help_path %></li>
+        <li><%= link_to t(".en"), locale:"en" %></li>
+        <li><%= link_to t(".vi"), locale:"vi" %></li>
         <% if logged_in? %>
           <li><%= link_to t(".logout"), logout_path, method: :delete %></li>
         <% else %>
           <li><%= link_to t(".login"), login_path %></li>
         <% end %></li>
-        <li><%= link_to t(".en"), locale:"en" %></li>
-        <li><%= link_to t(".vi"), locale:"vi" %></li>
       </ul>
     </nav>
   </div>

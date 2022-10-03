@@ -12,13 +12,12 @@ class ReportsController < ApplicationController
 
   def create
     @report = current_user.reports.build report_params
-
     if @report.save
-      UserMailer.account_notification(@report).deliver_now
-      flash[:info] = t ".create_success_notify"
+      sent_email_manager
+      flash[:info] = t ".create_success"
       redirect_to current_user
     else
-      flash.now[:danger] = t ".create_failed_notify"
+      flash.now[:danger] = t ".create_fail"
       render :new
     end
   end
@@ -29,9 +28,9 @@ class ReportsController < ApplicationController
     if @report.update report_params
       check_sent_email
       redirect_to report_path(id: @report.id)
-      flash[:success] = t ".update_success_report"
+      flash[:success] = t ".update_success"
     else
-      flash.now[:danger] = t ".update_failed_report"
+      flash.now[:danger] = t ".update_fail"
       render :edit
     end
   end
@@ -39,11 +38,7 @@ class ReportsController < ApplicationController
   private
 
   def report_params
-    if check_manager(current_user, @report)
-      params.require(:report).permit Report::UPDATABLE_ATTRS_MANAGER
-    else
-      params.require(:report).permit Report::UPDATABLE_ATTRS
-    end
+    params.require(:report).permit Report::UPDATABLE_ATTRS
   end
 
   def find_report
@@ -58,6 +53,14 @@ class ReportsController < ApplicationController
       UserMailer.account_notification(@report).deliver_now
     else
       UserMailer.respond_report(@report).deliver_now
+    end
+  end
+
+  def sent_email_manager
+    @manager_ids = @report.department.user_departments.manager.pluck(:user_id)
+    users = User.by_id @manager_ids
+    users.each do |user|
+      UserMailer.account_notification(@report, user).deliver_now
     end
   end
 end
