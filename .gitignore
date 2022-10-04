@@ -71,3 +71,10 @@ yarn-debug.log*
 
 .framgia-ci-reports/rubocop.xml
 .framgia-ci-result.temp.yml
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity

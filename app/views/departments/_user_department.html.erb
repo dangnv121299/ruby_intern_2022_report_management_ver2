@@ -1,0 +1,24 @@
+<li>
+  <table>
+    <tbody>
+      <tr>
+        <td id="width-15"><span><%= gravatar_for user, size: Settings.digit_50 %></span></td>
+        <td id="width-45"><span><%= link_to user.name, user_path(id: user) %></span></td>
+        <td id="width-15">
+          <span>
+            <% if role_edit_user_department current_user, @department, flag %>
+                <%= link_to t(".delete"), department_user_department_path(department_id: department.id, id: user.id), method: :delete, data: {confirm: t(".confirm")} %>
+            <% end %>
+          </span>
+        </td>
+        <td id="width-15">
+          <span>
+            <% if current_user.admin? %>
+               <%= link_to t(".edit"), edit_department_user_department_path(department_id: department.id, id: user.id) %>
+            <% end %>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</li>

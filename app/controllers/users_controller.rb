@@ -56,7 +56,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    if current_user.manager?
+    if is_manager? current_user
       params.require(:user).permit User::UPDATABLE_ATTRS_MANAGER,
                                    user_departments_attributes:
                                    UserDepartment::UPDATABLE_ATTRS
@@ -66,14 +66,14 @@ class UsersController < ApplicationController
   end
 
   def check_edit_role
-    return if current_user?(@user) || current_user.manager?
+    return if current_user?(@user) || is_manager?(current_user)
 
     flash[:error] = t ".edit_fail"
     redirect_to root_path
   end
 
   def check_create_role
-    return if current_user.manager? || current_user.admin?
+    return if is_manager?(current_user) || current_user.admin?
 
     flash[:error] = t ".create_fail"
     redirect_to root_path

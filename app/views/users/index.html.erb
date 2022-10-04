@@ -1,6 +1,6 @@
 <% provide :title, t(".title") %>
 <h1><%= t(".title") %></h1>
-<% if current_user.manager? %>
+<% if is_manager?(@current_user) %>
   <h4><%= link_to t(".create_user") , signup_path %></h4>
 <% end %>
 

@@ -1,12 +1,13 @@
 <% provide :title, t(".title") %>
 <% if logged_in? %>
-  <% if current_manager? %>
+  <% if is_manager?(@current_user) %>
     <h1 id="department-report"><%= t ".department_report" %></h1>
     <%= render "shared/feed" %>
-  <% end %>
+  <% else %>
     <h1 id="department-report"><%= t ".my_report" %></h1>
     <%= render @reports %>
     <%== pagy_bootstrap_nav(@pagy) %>
+  <% end %>
 <% else %>
   <h1><%= t ".title" %></h1>
   <p><%= t ".home_content" %></p>

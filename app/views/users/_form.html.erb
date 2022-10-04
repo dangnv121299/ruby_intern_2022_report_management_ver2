@@ -2,44 +2,32 @@
   <%= render "shared/error_messages", object: f.object %>
   <div class="form-group">
     <%= f.label t(".name") %>
-    <%= f.text_field :name, class: "form-control", placeholder: t(".name") %>
+    <%= f.text_field :name, class: "form-control", placeholder: t(".placeholder_name") %>
   </div>
   <div class="form-group">
     <%= f.label t(".email") %>
-    <%= f.email_field :email, class: "form-control", placeholder: t(".email") %>
+    <%= f.email_field :email, class: "form-control", placeholder: t(".placeholder_email") %>
   </div>
   <div class="form-group">
     <%= f.label t(".password") %>
-    <%= f.password_field :password, class: "form-control", placeholder: t(".password") %>
+    <%= f.password_field :password, class: "form-control", placeholder: "******" %>
   </div>
   <div class="form-group">
     <%= f.label t(".confirm_password") %>
-    <%= f.password_field :password_confirmation, class: "form-control", placeholder: t(".confirm_password") %>
+    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "******" %>
   </div>
   <div class="form-group">
     <%= f.label t(".day_start") %>
     <%= f.date_field :day_start, class: "form-control", placeholder: t(".day_start") %>
   </div>
-
-  <div class="field-group">
-    <%= f.fields_for :user_departments do |ud| %>
-      <%= ud.label :name %>
-      <%= ud.text_field :name %>
-      <%= ud.label :department_id %>
-      <%= ud.text_field :department_id %>
-      <%= ud.label :user_id %>
-      <%= ud.text_field :user_id %>
-    <% end %>
-  </div>
-
   <% if current_user.present? %>
     <div class="form-group">
       <%= f.label t(".phone") %>
-      <%= f.text_field :phone, class: "form-control", placeholder: t(".phone") %>
+      <%= f.text_field :phone, class: "form-control", placeholder: t(".placeholder_phone") %>
     </div>
     <div class="form-group">
       <%= f.label t(".address") %>
-      <%= f.text_field :address, class: "form-control", placeholder: t(".address") %>
+      <%= f.text_field :address, class: "form-control", placeholder: t(".placeholder_address") %>
     </div>
   <% end %>
   <%= f.submit yield(:button_text), class: "btn btn-success btn-lg btn-block" %>

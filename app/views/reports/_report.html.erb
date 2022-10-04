@@ -1,22 +1,28 @@
 <li id="report-<%= report.id %>">
-  <table class="report-table">
-    <tr>
-      <th></th>
-      <th class="user"><span><%= t ".name" %></span></th>
-      <th class="plan_today"><span><%= t ".plan_today" %></span></th>
-      <th class="time"></th>
-      <th><span><%= t ".status" %></span></th>
-      <th class="edit"></th>
-    </tr>
-    <tr>
-      <td><%= link_to gravatar_for(report.user, size: Settings.digit_50), report.user %></td>
-      <td class="user"><span><%= link_to report.user_name, report %></span></td>
-      <td class="plan_today"><span><%= report.plan_today %></span></td>
-      <td class="time"><%= l(report.created_at, format: :short) %></td>
-      <td class="status color-<%= report.status%>"><span ><%= report.status %></span></td>
-      <td class="edit">
-        <span><%= link_to t(".edit"), edit_report_url(id: report.id) %></span>
-      </td>
-    </tr>
+  <table class="table-striped table-hover report-table">
+    <thead>
+      <tr>
+        <th id="width-5"></th>
+        <th id="width-15" class="user"><span><%= t ".name" %></span></th>
+        <th id="width-10" class="user"><span><%= t ".department_received" %></span></th>
+        <th id="width-30" class="plan_today"><span><%= t ".plan_today" %></span></th>
+        <th id="width-15" class=""><%= t ".time_create" %></th>
+        <th id="width-15"><span><%= t ".status" %></span></th>
+        <th id="width-10" class="edit"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="width-5"><%= link_to gravatar_for(report.user, size: Settings.digit_50), report.user %></td>
+        <td id="width-15" class="user"><span><%= link_to report.user_name, report %></span></td>
+        <td id="width-10" class="user"><span><%= department_received(report).name %></span></td>
+        <td id="width-30" class="plan_today"><span><%= report.plan_today %></span></td>
+        <td id="width-15" class=""><%= l(report.created_at, format: :short) %></td>
+        <td id="width-15"><span  class="status color-<%= report.status%>"><%= report.status %></span></td>
+        <td id="width-10" class="edit">
+          <span class="btn btn-primary text-white"><%= link_to t(".edit"), edit_report_url(id: report.id), class: "text-light" %></span>
+        </td>
+      </tr>
+    </tbody>
   <table>
 </li>

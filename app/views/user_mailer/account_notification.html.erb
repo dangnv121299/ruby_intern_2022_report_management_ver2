@@ -1,4 +1,5 @@
 <h1><%= t ".title" %></h1>
-<h4><%= t ".hi" %> <%= @users.name %></h4>
+
+<h4><%= t ".hi" %> <%= @user.name %></h4>
 <p><%= t ".greeting" %></p>
 <%= link_to t(".link"), report_url(id: @report.id)%>

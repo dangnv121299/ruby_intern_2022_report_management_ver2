@@ -6,7 +6,6 @@ vi:
       hi: "Xin chào"
       greeting: "Bạn có một bản báo cáo vừa được gửi. Hãy kiểm tra bản báo cáo ngay!."
       link: "Nhấp vào đây để tới đường dẫn."
-  user_mailer:
     respond_report:
       respond_report: "Bạn có một bản báo cáo vừa được xem."
       title: "Báo cáo của bạn vừa được bộ phận kiểm tra và phản hồi."
@@ -14,14 +13,33 @@ vi:
       greeting: "Bạn có một bản báo cáo vừa được phản hồi. Hãy kiểm tra bản báo cáo ngay!."
       link: "Nhấp vào đây để tới đường dẫn."
   user_departments:
+    edit:
+      title: "Chỉnh sửa quyền người dùng"
+      role: "Quyền"
+      create: "Thay đổi"
     new:
       title: "Thêm mới Quản lý"
       name: "Tên"
       flash: "Vui lòng chọn ít nhất 1 người"
       create: "Tạo"
+    update:
+      update_manager: "Thêm nhân viên thành công"
+      update_fail: "Thêm nhân viên thất bại"
+    destroy:
+      delete_success: "Xóa nhân viên khỏi bộ phận thành công"
+      delete_fail: "Xóa nhân viên khỏi bộ phận thất bại"
   departments:
+    create:
+      create_success: "Tạo bộ phận thành công"
+      create_fail: "Tạo bộ phận thất bại. Hãy thử lại"
+    destroy:
+      delete_success: "Xóa bộ phận thành công."
+      delete_fail: "Xóa thất bại."
+    form:
+      name: "Tên bộ phận"
     index:
       title: "Danh mục các bộ phận"
+      create_department: "Tạo bộ phận mới"
     show:
       manager_list: "Quản lý"
       member_list: "Thành viên"
@@ -30,34 +48,66 @@ vi:
       create_department: "Tạo bộ phận mới"
       name: "Tên"
     department:
-      delete: "|Xóa"
+      delete: "      |Xóa"
+      edit: "     |Chỉnh sửa"
       confirm: "Bạn có chắc chắn muốn xóa"
+    edit:
+      edit_department: "Chỉnh sửa tên bộ phận"
+    user_department:
+      delete: "     |Xóa"
+      edit: "     |Sửa quyền"
+      confirm: "Xác nhận xóa nhân viên ra khỏi bộ phận?"
   reports:
+    report:
+      name: "Tên"
+      plan_today: "Kế hoạch hôm nay"
+      status: "Trạng thái"
+      time: "Lần chỉnh sửa gần nhất"
+      edit: "Chỉnh sửa"
+      time_create: "Thời gian khởi tạo"
+      time_update: "Lần chỉnh sửa gần nhất"
+      department_received: "Nơi nhận"
     show:
       report: "Báo cáo hàng ngày"
       create: "Tạo mới"
     form:
-      receiver: "Người nhận"
+      comment: "Ghi chú"
+      status: "Trạng thái"
+      receiver: "Bộ phận nhận"
       plan_today: "Kế hoạch hôm nay"
       reality: "Thực tế"
       reason: "Lý do (nếu có)"
       plan_next_day: "Kế hoạch ngày mai"
       create: "Gửi"
+    new:
+      create_report: "Tạo báo cáo"
+    edit:
+      edit_report: "Chỉnh sửa báo cáo này"
+    create:
+      create_success: "Tạo báo cáo thành công, xem chi tiết bên dưới."
+      create_fail: "Tạo báo cáo thất bại, hãy thử lại."
+    update:
+      update_success: "Cập nhật báo cáo thành công"
+      update_fail: "Cập nhật thất bại"
   sessions:
     new:
       title: "Đăng nhập"
       email: "Email"
       password: "Mật khẩu"
       new_user: "Bạn chưa có tài khoản? Vui lòng liên hệ với quản lý"
-      signup: "Sign Up Now"
+      signup: "Đăng kí ngay"
     create:
+      login_success: "Đăng nhập thành công"
+      login_fail: "Sai thông tin đăng nhập"
+      find_error: "Không tồn tại email"
       activate_fail: "Đăng nhập thất bại"
-      flash_danger: "Sai thông tin đăng nhập"
   shared:
     error_messages:
       message_error: "Bản đăng kí có"
       error: "lỗi"
   users:
+    show:
+      find_user: "Người này không tồn tại, vui lòng tìm kiếm người khác"
     user:
       delete: "|Xóa"
       confirm: "Bạn có chắc chắn"
@@ -94,6 +144,10 @@ vi:
       phone: "Số điện thoại"
       address: "Địa chỉ"
       day_start: "Ngày bắt đầu"
+      placeholder_name: "Nguyễn Văn A"
+      placeholder_email: "example@example.com"
+      placeholder_phone: "0123456789"
+      placeholder_address: "Phương Liên, Đống Đa, Hà Nội"
     destroy:
       delete_success: "Xóa thành công"
       delete_fail: "Xóa thất bại"
@@ -105,12 +159,19 @@ vi:
       home: "Trang chủ"
       help: "Trợ giúp"
       login: "Đăng nhập"
+      logout: "Đăng xuất"
       en: "Tiếng Anh"
       vi: "Tiếng Việt"
       department: "Quản lý bộ phận"
     footer:
       term: "Điều khoản dịch vụ"
       privacy: "Bảo mật"
+    sidebar:
+      department: "Danh mục bộ phận"
+      report: "Báo cáo của tôi"
+      settings: "Cài đặt tài khoản"
+      create_report: "Báo cáo nhanh"
+      create_user: "Tạo nhân viên mới"
   static_pages:
     help:
       title: "Trợ giúp"

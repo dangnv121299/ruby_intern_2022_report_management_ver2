@@ -6,4 +6,6 @@ class Department < ApplicationRecord
   has_many :users, through: :user_departments
   validates :name, presence: true,
       length: {maximum: Settings.department.max_name}
+
+  scope :by_id, ->(department_id){where id: department_id}
 end

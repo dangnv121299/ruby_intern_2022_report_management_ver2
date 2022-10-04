@@ -3,7 +3,8 @@ class UserDepartmentsController < ApplicationController
   before_action :logged_in_user,
                 except: %i(new create)
   before_action :find_user, only: %i(create)
-  before_action ->{check_role? :admin}
+  before_action :find_user_department, except: %i(new create)
+  before_action :check_role_manager
 
   def new
     @user_department = @department.user_departments.build
@@ -26,7 +27,7 @@ class UserDepartmentsController < ApplicationController
   def update
     if @user_department.update user_department_params
       flash[:success] = t ".update_manager"
-      redirect_to root_path
+      redirect_to department_url(id: params[:department_id])
     else
       flash.now[:danger] = t ".update_fail"
       render :edit
@@ -34,18 +35,22 @@ class UserDepartmentsController < ApplicationController
   end
 
   def destroy
-    if @user_department.destroy
+    if @user_department.destroy_all
       flash[:success] = t ".delete_success"
-      redirect to department_url(id: params[:department_id])
     else
       flash[:danger] = t ".delete_fail"
     end
+    redirect_to department_url(id: params[:department_id])
   end
 
   private
 
   def user_department_params
-    params.permit UserDepartment::UPDATABLE_ATTRS
+    if @current_user.admin?
+      params.permit UserDepartment::UPDATABLE_ATTRS_ADMIN
+    else
+      params.permit UserDepartment::UPDATABLE_ATTRS
+    end
   end
 
   def find_department
@@ -53,5 +58,18 @@ class UserDepartmentsController < ApplicationController
     return if @department
 
     flash[:danger] = t ".find_department"
+  end
+
+  def find_user_department
+    @user_deps = UserDepartment.by_department(params[:department_id])
+    @user_department = @user_deps.by_user(params[:id])
+
+    return if @user_department
+
+    flash[:danger] = t ".find_user_department"
+  end
+
+  def check_role_manager
+    list_manager(@department).include?(@current_user) || current_user.admin?
   end
 end
