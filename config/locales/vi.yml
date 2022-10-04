@@ -172,6 +172,14 @@ vi:
       settings: "Cài đặt tài khoản"
       create_report: "Báo cáo nhanh"
       create_user: "Tạo nhân viên mới"
+    searchbar:
+      all: "Chọn tất cả"
+      status: "Trạng thái"
+      department: "Bộ phận"
+      user: "Người gửi"
+      search: "Tìm kiếm"
+      start_date: "Ngày bắt đầu"
+      end_date: "Ngày kết thúc"
   static_pages:
     help:
       title: "Trợ giúp"
@@ -181,6 +189,7 @@ vi:
       home_content: "Đây là trang chủ của hệ thống Báo cáo hàng ngày của Sun Asterisk Việt Nam"
       department_report: "Báo cáo trong bộ phận"
       my_report: "Báo cáo của tôi"
+      filter_report: "Lọc báo cáo nhanh"
   date:
     formats:
       default: "%Y-%m-%d"

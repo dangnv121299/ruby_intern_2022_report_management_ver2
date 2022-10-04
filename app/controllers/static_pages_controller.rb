@@ -3,7 +3,9 @@ class StaticPagesController < ApplicationController
     return unless logged_in?
 
     @pagy, @reports = pagy Report.by_user_id(current_user.id)
-    @reports = Report.by_department_id(find_managed(current_user))
+
+    @rps = Report.by_department_id(find_managed(current_user))
+    @reports = @rps.search(params)
     @pagy, @feed_items = pagy @reports.newest
   end
 

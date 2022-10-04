@@ -172,6 +172,14 @@ en:
       settings: "Settings"
       create_report: "Report Now"
       create_user: "Create User"
+    searchbar:
+      all: "Select All"
+      status: "Status"
+      department: "Department"
+      user: "User"
+      search: "Search"
+      start_date: "Start Date"
+      end_date: "End Date"
   static_pages:
     help:
       title: "Help"
@@ -181,6 +189,7 @@ en:
       home_content: "This is report management of Sun Asterisk Vietnam"
       department_report: "List of department reports"
       my_report: "List of my reports"
+      filter_report: "Rapid filter report"
   date:
     formats:
       default: "%Y-%m-%d"
