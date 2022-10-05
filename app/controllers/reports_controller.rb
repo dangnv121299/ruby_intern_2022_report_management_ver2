@@ -38,7 +38,11 @@ class ReportsController < ApplicationController
   private
 
   def report_params
-    params.require(:report).permit Report::UPDATABLE_ATTRS
+    if current_user.id == @report.user_id
+      params.require(:report).permit Report::UPDATABLE_ATTRS
+    else
+      params.require(:report).permit Report::UPDATABLE_ATTRS_MANAGER
+    end
   end
 
   def find_report

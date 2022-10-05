@@ -1,6 +1,8 @@
 <% provide :title, t(".title") %>
 <% if logged_in? %>
   <% if is_manager?(@current_user) %>
+    <h1 id="department-report"><%= t ".filter_report" %></h1>
+    <%= render "layouts/searchbar" %>
     <h1 id="department-report"><%= t ".department_report" %></h1>
     <%= render "shared/feed" %>
   <% else %>

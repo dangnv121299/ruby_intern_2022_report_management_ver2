@@ -13,6 +13,14 @@ module UserDepartmentsHelper
     user.user_departments.manager.pluck(:department_id)
   end
 
+  def list_department_managed user
+    Department.by_id(find_managed(user))
+  end
+
+  def list_member_managed user
+    UserDepartment.by_department(find_managed(user)).member.map(&:user)
+  end
+
   def check_manager user, report
     find_managed(user).include?(report.department_id)
   end

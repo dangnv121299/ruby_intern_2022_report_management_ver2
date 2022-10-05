@@ -1,0 +1,27 @@
+<%= form_tag root_path, method: "get" do %>
+  <div class="form-row">
+    <div class="col-md-2 mb-3">
+      <%= label_tag t(".user") %>
+      <%= collection_select(nil, :user_id, list_member_managed(current_user), :id, :name, {selected: params[:user_id], prompt: t(".all")})%>
+    </div>
+    <div class="col-md-2 mb-3">
+      <%= label_tag t(".department") %>
+      <%= collection_select(nil, :department_id, list_department_managed(current_user), :id, :name, {selected: params[:department_id], prompt: t(".all")})%>
+    </div>
+    <div class="col-md-2 mb-2">
+      <%= label_tag t(".status") %>
+      <%= select_tag(:status, options_for_select(Report.statuses.to_a, params[:status]), {selected: params[:status], prompt: t(".all")}) %>
+    </div>
+    <div class="col-md-2 mb-3">
+      <%= label_tag t(".start_date") %>
+      <%= date_field_tag :start_date, params[:start_date] %>
+    </div>
+    <div class="col-md-2 mb-3">
+      <%= label_tag t(".end_date") %>
+      <%= date_field_tag :end_date, params[:end_date] %>
+    </div>
+    <div class="col-md-2 mb-4 search-filter">
+      <%= submit_tag t(".search"), name: nil, class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
