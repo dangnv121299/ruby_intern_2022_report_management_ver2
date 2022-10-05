@@ -19,7 +19,7 @@ vi:
       create: "Thay đổi"
     new:
       title: "Thêm mới Quản lý"
-      name: "Tên"
+      name: "Tên nhân viên"
       flash: "Vui lòng chọn ít nhất 1 người"
       create: "Tạo"
     update:
