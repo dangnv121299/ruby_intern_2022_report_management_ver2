@@ -1,0 +1,7 @@
+<%= form_tag department_user_department_path(department_id: @department.id), method: :patch do %>
+  <div class="form-group">
+    <%= label_tag t(".role") %>
+    <%= select_tag :role, options_for_select(UserDepartment.roles.keys) %>
+  </div>
+  <%= submit_tag t(".create"), class: "btn btn-primary col-md-4 mg-30" %>
+<% end %>

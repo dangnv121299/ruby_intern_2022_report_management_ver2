@@ -14,11 +14,11 @@ module UserDepartmentsHelper
   end
 
   def list_department_managed user
-    Department.by_id(find_managed(user))
+    Department.by_id(find_managed(user)).distinct
   end
 
   def list_member_managed user
-    UserDepartment.by_department(find_managed(user)).member.map(&:user)
+    UserDepartment.by_department(find_managed(user)).member.distinct.map(&:user)
   end
 
   def check_manager user, report

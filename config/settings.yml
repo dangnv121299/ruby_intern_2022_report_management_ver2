@@ -12,6 +12,7 @@ report:
 reports:
   report:
     format_date: "%d/%m/%Y"
+    max_length: 100
   new:
     datetime: "%d/%m/%Y"
 form:

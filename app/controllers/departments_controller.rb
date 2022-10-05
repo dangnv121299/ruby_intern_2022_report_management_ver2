@@ -8,6 +8,11 @@ class DepartmentsController < ApplicationController
 
   def new
     @department = Department.new
+    respond_to do |format|
+      format.js do
+        render :form, locals: {action: params[:action]}
+      end
+    end
   end
 
   def create

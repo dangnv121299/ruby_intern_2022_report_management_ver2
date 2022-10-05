@@ -11,12 +11,18 @@
   </head>
 
   <body>
-    <%= render "layouts/sidebar" %>
     <%= render "layouts/header" %>
-    <div class ="container">
-      <%= yield %>
-      <%= render "layouts/footer" %>
+    <% if logged_in? %>
+      <div id="sidebar">
+        <%= render "layouts/sidebar" %>
+      </div>
+    <% end %>
+    <div id="container">
+      <div class ="container">
+        <%= yield %>
       <%= toastr_flash.html_safe %>
+      </div>
+      <%= render "layouts/footer" %>
     </div>
   </body>
 </html>

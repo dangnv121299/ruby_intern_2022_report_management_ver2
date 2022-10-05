@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:info] = t ".create_success"
-      redirect_to @user
+      redirect_to root_path
     else
       flash.now[:danger] = t ".create_fail"
       render :new

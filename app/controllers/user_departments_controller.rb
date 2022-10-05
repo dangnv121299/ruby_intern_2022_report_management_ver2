@@ -8,6 +8,11 @@ class UserDepartmentsController < ApplicationController
 
   def new
     @user_department = @department.user_departments.build
+    respond_to do |format|
+      format.js do
+        render :form, locals: {action: params[:action]}
+      end
+    end
   end
 
   def create
@@ -22,7 +27,13 @@ class UserDepartmentsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    respond_to do |format|
+      format.js do
+        render :edit, locals: {action: params[:action]}
+      end
+    end
+  end
 
   def update
     if @user_department.update user_department_params
