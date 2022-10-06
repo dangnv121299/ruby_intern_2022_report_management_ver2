@@ -1,51 +1,45 @@
 workspace: true
 
 stages:
-- build
-- test
+  - build
+  - test
 
 jobs:
-- name: build:prepare
-  stage: build
-  image: sunci/ruby:3.0.2
-  script:
-  - cp database-ci.yml config/database.yml
-  - bundle _2.1.4_ install --path vendor/bundle
-  cache:
-  - key: vendor_$CI_BRANCH
-    paths:
-    - vendor/bundle
+  - name: build:prepare
+    stage: build
+    image: sunci/ruby:3.0.2
+    script:
+      - cp database-ci.yml config/database.yml
+      - bundle _2.1.4_ install --path vendor/bundle
+    cache:
+      - key: vendor_$CI_BRANCH
+        paths:
+          - vendor/bundle
 
-# - name: test:rspec
-#   stage: test
-#   image: sunci/ruby:3.0.2
-#   services:
-#   - image: mysql:5.7.22
-#     name: mysql_test
-#     environment:
-#       MYSQL_DATABASE: db_test
-#       MYSQL_USER: user_test
-#       MYSQL_PASSWORD: password_test
-#       MYSQL_ROOT_PASSWORD: password_test
-#   before_script:
-#   - bundle _2.1.4_ install --path vendor/bundle
-#   - bundle _2.1.4_ exec rake db:drop db:create db:migrate
-#   - mkdir .sun-ci
-#   script:
-#   - DISABLE_SPRING=1 bundle _2.1.4_ exec rspec --format html --out .sun-ci/rspec.html spec/
-#   only:
-#     branches:
-#     - master
-#   artifacts:
-#     name: rspec_report
-#     paths:
-#     - .sun-ci
-#     expires_in: 3 days
+  - name: test:rspec
+    stage: test
+    image: sunci/ruby:3.0.2
+    services:
+      - image: mysql:5.7.22
+        name: mysql_test
+        environment:
+          MYSQL_DATABASE: db_test
+          MYSQL_USER: user_test
+          MYSQL_PASSWORD: password_test
+          MYSQL_ROOT_PASSWORD: password_test
+    before_script:
+      - bundle _2.1.4_ install --path vendor/bundle
+      - bundle _2.1.4_ exec rake db:drop db:create db:migrate
+    script:
+      - DISABLE_SPRING=1 bundle _2.1.4_ exec rspec --format html --out .sun-ci/rspec.html spec/
+    only:
+      branches:
+        - master
 
-- name: test:rubocop
-  stage: test
-  image: sunci/ruby:3.0.2
-  before_script:
-  - bundle _2.1.4_ install --path vendor/bundle
-  script:
-  - bundle exec rubocop --require rubocop/formatter/checkstyle_formatter --format RuboCop::Formatter::CheckstyleFormatter --no-color app/ lib/
+  - name: test:rubocop
+    stage: test
+    image: sunci/ruby:3.0.2
+    before_script:
+      - bundle _2.1.4_ install --path vendor/bundle
+    script:
+      - bundle exec rubocop --require rubocop/formatter/checkstyle_formatter --format RuboCop::Formatter::CheckstyleFormatter --no-color app/ lib/
