@@ -68,8 +68,7 @@ yarn-debug.log*
 
 /config/database.yml
 /config/application.yml
-
-.framgia-ci-reports/rubocop.xml
+/.framgia-ci-reports
 .framgia-ci-result.temp.yml
 
 /public/packs
