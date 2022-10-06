@@ -16,11 +16,27 @@
         <td id="width-5"><%= link_to gravatar_for(report.user, size: Settings.digit_50), report.user %></td>
         <td id="width-15" class="user"><span><%= link_to report.user_name, report %></span></td>
         <td id="width-10" class="user"><span><%= department_received(report).name %></span></td>
-        <td id="width-30" class="plan_today"><span><%= report.plan_today %></span></td>
+        <td id="width-30" class="plan_today"><span class="claimedRight" maxlength="100"><%= report.plan_today %></span>
+          <% if (report.plan_today).length > Settings.reports.report.max_length %>
+            <%= link_to t(".read_more"), report_url(id: report.id) %>
+          <% end %>
+        </td>
         <td id="width-15" class=""><%= l(report.created_at, format: :short) %></td>
         <td id="width-15"><span  class="status color-<%= report.status%>"><%= report.status %></span></td>
         <td id="width-10" class="edit">
-          <span class="btn btn-primary text-white"><%= link_to t(".edit"), edit_report_url(id: report.id), class: "text-light" %></span>
+          <% if current_user.id != report.user_id %>
+            <span class="btn btn-primary text-white">
+              <%= link_to t(".manage"), edit_report_url(id: report.id), class: "text-light",
+                data: { bs_toggle: "modal" , bs_target: "#modalLive" },
+                remote: true %>
+            </span>
+          <% else %>
+            <span class="btn btn-primary text-white">
+              <%= link_to t(".edit"), edit_report_url(id: report.id), class: "text-light",
+                data: { bs_toggle: "modal" , bs_target: "#modalLive" },
+                remote: true %>
+            </span>
+          <% end %>
         </td>
       </tr>
     </tbody>

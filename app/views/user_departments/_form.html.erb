@@ -1,0 +1,7 @@
+<%= form_tag department_add_user_to_department_path(id: @department.id) do %>
+  <div class="form-group">
+    <%= label_tag t(".name") %>
+    <%= select_tag "user_ids[]", options_for_select(User.where.not(id: @department.users.ids).pluck(:name, :id)), class: "select2-search", multiple: true %>
+  </div>
+  <%= submit_tag (t ".create"), class: "btn btn-success btn-lg btn-block col-md-4 mg-30" %>
+<% end %>

@@ -1,7 +1,7 @@
 class ReportsController < ApplicationController
   before_action :logged_in_user
   before_action :find_report, only: %i(show edit update)
-
+  before_action :check_owner_report, only: %i(edit update)
   def show
     @user = @report.user
   end
@@ -13,7 +13,6 @@ class ReportsController < ApplicationController
   def create
     @report = current_user.reports.build report_params
     if @report.save
-      sent_email_manager
       flash[:info] = t ".create_success"
       redirect_to current_user
     else
@@ -22,11 +21,16 @@ class ReportsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    respond_to do |format|
+      format.js do
+        render :edit_report, locals: {action: params[:action]}
+      end
+    end
+  end
 
   def update
-    if @report.update report_params
-      check_sent_email
+    if @report.update report_params_edit
       redirect_to report_path(id: @report.id)
       flash[:success] = t ".update_success"
     else
@@ -38,6 +42,10 @@ class ReportsController < ApplicationController
   private
 
   def report_params
+    params.require(:report).permit Report::UPDATABLE_ATTRS
+  end
+
+  def report_params_edit
     if current_user.id == @report.user_id
       params.require(:report).permit Report::UPDATABLE_ATTRS
     else
@@ -65,6 +73,16 @@ class ReportsController < ApplicationController
     users = User.by_id @manager_ids
     users.each do |user|
       UserMailer.account_notification(@report, user).deliver_now
+    end
+  end
+
+  def check_owner_report
+    return if current_user.id != @report.user_id
+
+    respond_to do |format|
+      format.js do
+        render :form, locals: {action: params[:action]}
+      end
     end
   end
 end

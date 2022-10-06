@@ -14,7 +14,9 @@
         <td id="width-15">
           <span>
             <% if current_user.admin? %>
-               <%= link_to t(".edit"), edit_department_user_department_path(department_id: department.id, id: user.id) %>
+               <%= link_to t(".edit"), edit_department_user_department_path(department_id: department.id, id: user.id),
+                   data: { bs_toggle: "modal" , bs_target: "#modalLive" },
+                   remote: true %>
             <% end %>
           </span>
         </td>

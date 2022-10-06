@@ -1,16 +1,5 @@
 <%= form_for @report do |f| %>
   <%= render "shared/error_messages", object: f.object %>
-
-  <% if check_manager(@current_user, @report) %>
-    <div class="form-group">
-      <%= f.label t(".comment") %>
-      <%= f.text_area :comment, class: "form-control", row: Settings.form.create_form.num_row %>
-    </div>
-    <div class="form-group choose-status">
-      <%= f.label t(".status") %>
-      <%= f.select :status, Report.statuses.keys %>
-    </div>
-  <% else %>
     <div class="form-group">
       <%= f.label t(".receiver") %>
       <span class="require-field">*</span>
@@ -35,6 +24,5 @@
       <span class="require-field">*</span>
       <%= f.text_area :plan_next_day, class: "form-control", row: Settings.form.create_form.num_row %>
     </div>
-  <% end %>
-  <%= f.submit t(".create"), class: "btn btn-primary" %>
+  <%= f.submit t(".create"), class: "btn btn-primary col-md-4 mg-30" %>
 <% end %>

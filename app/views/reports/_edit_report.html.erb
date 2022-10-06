@@ -1,0 +1,12 @@
+<%= form_for @report do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="form-group">
+    <%= f.label t(".comment") %>
+    <%= f.text_area :comment, class: "form-control", row: Settings.form.create_form.num_row %>
+  </div>
+  <div class="form-group choose-status">
+    <%= f.label t(".status") %>
+    <%= f.select :status, Report.statuses.keys, {}, {class: 'select2-search'} %>
+  </div>
+  <%= f.submit t(".create"), class: "btn btn-primary" %>
+<% end %>

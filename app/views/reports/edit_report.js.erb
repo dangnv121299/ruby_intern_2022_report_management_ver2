@@ -1,0 +1,3 @@
+$("#modalLiveLabel").html("<%= action == 'new' ? I18n.t('.reports.report.edit') : I18n.t('.reports.report.edit') %>");
+$(".modal-body").html("<%= j render 'edit_report', report: @report %>");
+$("#modalLive").modal("show");

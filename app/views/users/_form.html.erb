@@ -1,34 +1,38 @@
 <%= form_for @user do |f| %>
   <%= render "shared/error_messages", object: f.object %>
-  <div class="form-group">
-    <%= f.label t(".name") %>
-    <%= f.text_field :name, class: "form-control", placeholder: t(".placeholder_name") %>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <%= f.label t(".name") %>
+      <%= f.text_field :name, class: "form-control", placeholder: t(".placeholder_name") %>
+    </div>
+    <div class="col-md-4 mb-3">
+      <%= f.label t(".email") %>
+      <%= f.email_field :email, class: "form-control", placeholder: t(".placeholder_email") %>
+    </div>
+    <div class="col-md-4 mb-3">
+      <%= f.label t(".day_start") %>
+      <%= f.date_field :day_start, class: "form-control", placeholder: t(".day_start") %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label t(".email") %>
-    <%= f.email_field :email, class: "form-control", placeholder: t(".placeholder_email") %>
-  </div>
-  <div class="form-group">
-    <%= f.label t(".password") %>
-    <%= f.password_field :password, class: "form-control", placeholder: "******" %>
-  </div>
-  <div class="form-group">
-    <%= f.label t(".confirm_password") %>
-    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "******" %>
-  </div>
-  <div class="form-group">
-    <%= f.label t(".day_start") %>
-    <%= f.date_field :day_start, class: "form-control", placeholder: t(".day_start") %>
-  </div>
-  <% if current_user.present? %>
-    <div class="form-group">
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <%= f.label t(".password") %>
+      <%= f.password_field :password, class: "form-control", placeholder: "******" %>
+    </div>
+    <div class="col-md-4 mb-3">
+      <%= f.label t(".confirm_password") %>
+      <%= f.password_field :password_confirmation, class: "form-control", placeholder: "******" %>
+    </div>
+    <div class="col-md-4 mb-3">
       <%= f.label t(".phone") %>
       <%= f.text_field :phone, class: "form-control", placeholder: t(".placeholder_phone") %>
     </div>
+  </div>
+  <% if current_user.present? %>
     <div class="form-group">
       <%= f.label t(".address") %>
       <%= f.text_field :address, class: "form-control", placeholder: t(".placeholder_address") %>
     </div>
   <% end %>
-  <%= f.submit yield(:button_text), class: "btn btn-success btn-lg btn-block" %>
+  <%= f.submit yield(:button_text), class: "btn btn-success btn-lg btn-block col-md-4 mb-3 mg-30" %>
 <% end %>

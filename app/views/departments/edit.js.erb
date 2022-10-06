@@ -1,0 +1,3 @@
+$("#modalLiveLabel").html("<%= action == 'new' ? I18n.t('.departments.edit.edit_department') : I18n.t('.departments.edit.edit_department') %>");
+$(".modal-body").html("<%= j render 'form' %>");
+$("#modalLive").modal("show");

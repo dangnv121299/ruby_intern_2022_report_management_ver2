@@ -13,12 +13,15 @@ vi:
       greeting: "Bạn có một bản báo cáo vừa được phản hồi. Hãy kiểm tra bản báo cáo ngay!."
       link: "Nhấp vào đây để tới đường dẫn."
   user_departments:
+    form:
+      name: "Tên nhân viên"
+      create: "Tạo"
     edit:
       title: "Chỉnh sửa quyền người dùng"
       role: "Quyền"
       create: "Thay đổi"
     new:
-      title: "Thêm mới Quản lý"
+      title: "Thêm mới nhân viên"
       name: "Tên nhân viên"
       flash: "Vui lòng chọn ít nhất 1 người"
       create: "Tạo"
@@ -37,6 +40,7 @@ vi:
       delete_fail: "Xóa thất bại."
     form:
       name: "Tên bộ phận"
+      update: "Cập nhật"
     index:
       title: "Danh mục các bộ phận"
       create_department: "Tạo bộ phận mới"
@@ -58,6 +62,10 @@ vi:
       edit: "     |Sửa quyền"
       confirm: "Xác nhận xóa nhân viên ra khỏi bộ phận?"
   reports:
+    edit_report:
+      create: "Cập nhật"
+      status: "Trạng thái"
+      comment: "Ghi chú"
     report:
       name: "Tên"
       plan_today: "Kế hoạch hôm nay"
@@ -67,6 +75,8 @@ vi:
       time_create: "Thời gian khởi tạo"
       time_update: "Lần chỉnh sửa gần nhất"
       department_received: "Nơi nhận"
+      read_more: "xem thêm"
+      manage: "Tùy chọn"
     show:
       report: "Báo cáo hàng ngày"
       create: "Tạo mới"
@@ -108,6 +118,8 @@ vi:
   users:
     show:
       find_user: "Người này không tồn tại, vui lòng tìm kiếm người khác"
+      create_report: "Tạo báo cáo mới"
+      total: "Tổng số báo cáo "
     user:
       delete: "|Xóa"
       confirm: "Bạn có chắc chắn"

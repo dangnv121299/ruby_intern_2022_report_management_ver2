@@ -1,0 +1,3 @@
+$("#modalLiveLabel").html("<%= action == 'new' ? I18n.t('.user_departments.new.title') : I18n.t('.user_departments.new.title') %>");
+$(".modal-body").html("<%= j render 'form' %>");
+$("#modalLive").modal("show");
