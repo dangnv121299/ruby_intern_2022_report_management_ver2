@@ -26,6 +26,9 @@ RSpec.configure do |config|
 
   require "simplecov"
   require "simplecov-rcov"
+  require "factory_bot_rails"
+  require "ffaker"
+
   class SimpleCov::Formatter::MergedFormatter
     def format result
       SimpleCov::Formatter::HTMLFormatter.new.format(result)

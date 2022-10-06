@@ -24,6 +24,7 @@ gem "simplecov-rcov"
 gem "toastr-rails"
 gem "turbolinks", "~> 5"
 gem "webpacker", "~> 5.0"
+gem "responders"
 
 group :development, :test do
   gem "pry-rails", platforms: [:mri, :mingw, :x64_mingw]
@@ -37,7 +38,10 @@ group :development do
 end
 
 group :development, :test do
+  gem "factory_bot_rails"
+  gem "rails-controller-testing"
   gem "rspec-rails", "~> 4.0.1"
+  gem "shoulda-matchers"
 end
 
 group :test do
@@ -51,7 +55,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :development, :test do # From Ruby 3.0 or Rails 6.0
-  gem "faker", "2.1.2"
+  gem "ffaker"
   gem "rubocop", "~> 1.26", require: false
   gem "rubocop-checkstyle_formatter", require: false
   gem "rubocop-rails", "~> 2.14.0", require: false

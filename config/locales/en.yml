@@ -80,6 +80,7 @@ en:
     show:
       report: "Daily Report"
       create: "Create"
+      find_report: "This report is not found"
     form:
       comment: "Note"
       status: "Status"
@@ -93,6 +94,7 @@ en:
       create_report: "Create a new report"
     edit:
       edit_report: "Edit this report"
+      find_report: "cannot find a report"
     create:
       create_success: "Tạo báo cáo thành công, xem chi tiết bên dưới."
       create_fail: "Tạo báo cáo thất bại, hãy thử lại."
