@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user,
-                except: %i(new create)
+  before_action :authenticate_user!
   before_action :find_user,
                 except: %i(new create index)
   before_action :check_edit_role, only: %i(edit update)

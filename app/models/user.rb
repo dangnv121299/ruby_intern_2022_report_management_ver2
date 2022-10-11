@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
   UPDATABLE_ATTRS_MANAGER = %i(name email password password_confirmation phone
                                address day_start).freeze
   UPDATABLE_ATTRS = %i(name email password password_confirmation phone
@@ -10,11 +14,10 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :user_departments
 
-  has_secure_password
   validates :password, presence: true,
              length: {minimum: Settings.user.min_password}, allow_nil: true
 
-  validates :name, presence: true, length: {maximum: Settings.user.max_name}
+  validates :name, length: {maximum: Settings.user.max_name}
 
   validates :email, presence: true, length: {maximum: Settings.user.max_email},
                     format: {with: Settings.user.email_regex},

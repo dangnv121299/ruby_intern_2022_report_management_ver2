@@ -1,6 +1,6 @@
 <% provide :title, t(".title") %>
-<% if logged_in? %>
-  <% if is_manager?(@current_user) %>
+<% if user_signed_in? %>
+  <% if is_manager?(current_user) %>
     <h1 id="department-report"><%= t ".filter_report" %></h1>
     <%= render "layouts/searchbar" %>
     <h1 id="department-report"><%= t ".department_report" %></h1>
@@ -15,7 +15,7 @@
     <h1><%= t ".title" %></h1>
     <p><%= t ".home_content" %></p>
     <div class="center jumbotron">
-      <%= link_to t(".login_now"), login_url, class: "btn btn-lg btn-primary" %>
+      <%= link_to t(".login_now"), new_user_session_url, class: "btn btn-lg btn-primary" %>
     </div>
   </div>
 <% end %>

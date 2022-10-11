@@ -14,7 +14,7 @@ RSpec.describe ReportsController, type: :controller do
   }
 
   before do
-    log_in user
+    sign_in user
   end
 
   describe "GET#show" do

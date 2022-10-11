@@ -6,10 +6,10 @@
         <li><%= link_to t(".home"), static_pages_home_path %></li>
         <li><%= link_to t(".en"), locale:"en" %></li>
         <li><%= link_to t(".vi"), locale:"vi" %></li>
-        <% if logged_in? %>
-          <li><%= link_to t(".logout"), logout_path, method: :delete %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to t(".logout"), destroy_user_session_url, method: :delete %></li>
         <% else %>
-          <li><%= link_to t(".login"), login_path %></li>
+          <li><%= link_to t(".login"), new_user_session_url %></li>
         <% end %></li>
       </ul>
     </nav>

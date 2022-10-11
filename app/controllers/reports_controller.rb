@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-  before_action :logged_in_user
+  before_action :authenticate_user!
   before_action :find_report, only: %i(show edit update)
   before_action :check_owner_report, only: %i(edit)
   def show
@@ -64,7 +64,7 @@ class ReportsController < ApplicationController
   end
 
   def check_sent_email
-    if @current_user.id == @report.user_id
+    if current_user.id == @report.user_id
       sent_email_manager
     else
       UserMailer.respond_report(@report).deliver_now

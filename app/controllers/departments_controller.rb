@@ -1,5 +1,5 @@
 class DepartmentsController < ApplicationController
-  before_action ->{check_role? :admin}, only: %i(new create)
+  before_action :check_role_admin, only: %i(new create)
   before_action :load_department, except: %i(index new create)
 
   def index
@@ -50,6 +50,10 @@ class DepartmentsController < ApplicationController
   end
 
   private
+
+  def check_role_admin
+    current_user.admin?
+  end
 
   def department_params
     params.require(:department).permit Department::UPDATABLE_ATTRS

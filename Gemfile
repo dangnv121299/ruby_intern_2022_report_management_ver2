@@ -6,6 +6,7 @@ gem "active_storage_validations", "0.8.2"
 gem "bcrypt", "3.1.13"
 gem "bootsnap", ">= 1.4.4"
 gem "config"
+gem "devise"
 gem "figaro"
 gem "font-awesome-sass"
 gem "i18n-js", "3.9.2"
@@ -24,7 +25,6 @@ gem "simplecov-rcov"
 gem "toastr-rails"
 gem "turbolinks", "~> 5"
 gem "webpacker", "~> 5.0"
-gem "responders"
 
 group :development, :test do
   gem "pry-rails", platforms: [:mri, :mingw, :x64_mingw]
