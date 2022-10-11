@@ -26,12 +26,23 @@ vi:
         subject: Hướng dẫn xác nhận tài khoản
       reset_password_instructions:
         subject: Hướng dẫn thiết lập lại mật khẩu
+        hello: "Xin chào"
+        request: "Ai đó đã gửi yêu cầu reset mật khẩu. Truy cập link bên dưới."
+        warning: "Nếu bạn không thực hiện, vui lòng bỏ qua."
+        notice: "Mật khẩu sẽ không bị thay đổi cho tới khi bạn truy cập vào link hoặc bạn tạo mới."
+        change: "Thay đổi"
       unlock_instructions:
         subject: Hướng dẫn mở khóa tài khoản
+        hello: "Xin chào"
+        notice: "Tài khoản của bạn đã bị khóa do nhập quá số lần quy định."
+        link: "Nhấp vào đường link dưới đây để mở khóa:"
+        unlock: "Mở khóa"
       email_changed:
         subject: "Email đã bị thay đổi"
       password_change:
         subject: "Mật khẩu đã bị thay đổi"
+        hello: "Xin chào"
+        notify: "We're contacting you to notify you that your password has been changed."
     omniauth_callbacks:
       failure: Không thể đăng nhập qua tài khoản %{kind} vì "%{reason}".
       success: Đăng nhập thành công bằng tài khoản %{kind}.
@@ -41,7 +52,31 @@ vi:
       send_paranoid_instructions: Nếu email của bạn có trong hệ thống, bạn sẽ nhận được đường dẫn khôi phục mật khẩu trong vài phút nữa qua email.
       updated: Đổi mật khẩu thành công! Bạn hiện đang đăng nhập.
       updated_not_active: Mật khẩu đã được đổi thành công.
+      new:
+        title: "Quên mật khẩu?"
+        send: "Gửi hướng dẫn đổi mật khẩu"
+      edit:
+        title: "Đổi mật khẩu"
+        password: "Mật khẩu mới"
+        password_confirmation: "Xác nhận mật khẩu"
+        change: "Đổi"
     registrations:
+      edit:
+        name: "Tên"
+        email: "Email"
+        password: "Mật khẩu"
+        confirm_password: "Xác nhận mật khẩu"
+        phone: "Số điện thoại"
+        address: "Địa chỉ"
+        day_start: "Ngày bắt đầu"
+        placeholder_name: "Nguyễn Văn A"
+        placeholder_email: "example@example.com"
+        placeholder_phone: "0123456789"
+        placeholder_address: "Phương Liên, Đống Đa, Hà Nội"
+        title: "Chỉnh sửa hồ sơ của"
+        password_blank: "Để trống nếu bạn không muốn đổi"
+        password_cf: "Nhập mật khẩu cũ để xác nhận"
+        button: "Xác nhận"
       destroyed: Tạm biệt! Tài khoản của bạn đã được xóa. Chúng tôi hy vọng sẽ sớm gặp lại bạn.
       signed_up: Xin chào! Bạn đã đăng ký thành công.
       signed_up_but_inactive: Bạn đã đăng ký thành công. Tuy nhiên, bạn cần phải kích hoạt tài khoản trước khi có thể đăng nhập được.
@@ -64,6 +99,8 @@ vi:
       send_instructions: Bạn sẽ nhận được email hướng dẫn cách mở khóa tài khoản trong vài phút nữa.
       send_paranoid_instructions: Nếu tài khoản của bạn tồn tại, bạn sẽ nhận được email hướng dẫn cách mở khóa tài khoản trong vài phút nữa.
       unlocked: Tài khoản của bạn đã được mở khóa thành công. Vui lòng đăng nhập để tiếp tục.
+      title: "Gửi lại hướng dẫn mở khóa"
+      submit: "Gửi"
   errors:
     messages:
       already_confirmed: đã được xác nhận, vui lòng đăng nhập để tiếp tục.
