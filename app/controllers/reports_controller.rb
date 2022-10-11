@@ -1,7 +1,7 @@
 class ReportsController < ApplicationController
   before_action :logged_in_user
   before_action :find_report, only: %i(show edit update)
-  before_action :check_owner_report, only: %i(edit update)
+  before_action :check_owner_report, only: %i(edit)
   def show
     @user = @report.user
   end
@@ -15,6 +15,7 @@ class ReportsController < ApplicationController
     if @report.save
       flash[:info] = t ".create_success"
       redirect_to current_user
+      sent_email_manager
     else
       flash.now[:danger] = t ".create_fail"
       render :new
@@ -33,6 +34,7 @@ class ReportsController < ApplicationController
     if @report.update report_params_edit
       redirect_to report_path(id: @report.id)
       flash[:success] = t ".update_success"
+      check_sent_email
     else
       flash.now[:danger] = t ".update_fail"
       render :edit
@@ -58,11 +60,12 @@ class ReportsController < ApplicationController
     return if @report
 
     flash[:danger] = t ".find_report"
+    redirect_to root_path
   end
 
   def check_sent_email
     if @current_user.id == @report.user_id
-      UserMailer.account_notification(@report).deliver_now
+      sent_email_manager
     else
       UserMailer.respond_report(@report).deliver_now
     end

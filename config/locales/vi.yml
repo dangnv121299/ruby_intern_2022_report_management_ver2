@@ -80,6 +80,7 @@ vi:
     show:
       report: "Báo cáo hàng ngày"
       create: "Tạo mới"
+      find_report: "Không tồn tại báo cáo trên"
     form:
       comment: "Ghi chú"
       status: "Trạng thái"
@@ -93,6 +94,7 @@ vi:
       create_report: "Tạo báo cáo"
     edit:
       edit_report: "Chỉnh sửa báo cáo này"
+      find_report: "Không tồn tại"
     create:
       create_success: "Tạo báo cáo thành công, xem chi tiết bên dưới."
       create_fail: "Tạo báo cáo thất bại, hãy thử lại."
