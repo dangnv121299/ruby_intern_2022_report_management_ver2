@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    return unless logged_in?
+    return unless user_signed_in?
 
     @pagy, @reports = pagy Report.by_user_id(current_user.id)
 

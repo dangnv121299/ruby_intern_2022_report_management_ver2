@@ -4,7 +4,7 @@
   <span class="staff_id">
     <%= user.id %>
   </span>
-  <% if is_manager?(@current_user) && !current_user?(user) %>
+  <% if is_manager?(current_user) && !current_user?(user) %>
     <%= link_to t(".delete"), user, method: :delete, data: {confirm: t(".confirm")} %>
     <%= link_to t(".edit"), edit_user_path(id: user) %>
   <% end %>

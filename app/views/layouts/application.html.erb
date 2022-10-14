@@ -12,7 +12,7 @@
 
   <body>
     <%= render "layouts/header" %>
-    <% if logged_in? %>
+    <% if user_signed_in? %>
       <div id="sidebar">
         <%= render "layouts/sidebar" %>
       </div>

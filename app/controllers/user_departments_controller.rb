@@ -1,10 +1,7 @@
 class UserDepartmentsController < ApplicationController
-  before_action :find_department
-  before_action :logged_in_user,
-                except: %i(new create)
+  before_action :find_department, :check_role_manager, :authenticate_user!
   before_action :find_user, only: %i(create)
   before_action :find_user_department, except: %i(new create)
-  before_action :check_role_manager
 
   def new
     @user_department = @department.user_departments.build
@@ -57,7 +54,7 @@ class UserDepartmentsController < ApplicationController
   private
 
   def user_department_params
-    if @current_user.admin?
+    if current_user.admin?
       params.permit UserDepartment::UPDATABLE_ATTRS_ADMIN
     else
       params.permit UserDepartment::UPDATABLE_ATTRS
@@ -81,6 +78,6 @@ class UserDepartmentsController < ApplicationController
   end
 
   def check_role_manager
-    list_manager(@department).include?(@current_user) || current_user.admin?
+    list_manager(@department).include?(current_user) || current_user.admin?
   end
 end

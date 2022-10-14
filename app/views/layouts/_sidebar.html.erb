@@ -1,14 +1,14 @@
 <nav id="sidebar">
   <div class="sidebar-header">
-    <% if logged_in? %>
+    <% if user_signed_in? %>
       <div id="avatar">
-        <%= gravatar_for @current_user %>
+        <%= gravatar_for current_user %>
       </div>
       <div id="name">
-        <%= @current_user.name %>
+        <%= current_user.name %>
       </div>
       <li><%= link_to t(".department"), departments_path, class: "btn-lg btn-sidebar" %></li>
-      <% if is_manager?(@current_user) || current_user.admin? %>
+      <% if is_manager?(current_user) || current_user.admin? %>
         <li><%= link_to t(".create_user"), new_user_url, class: "btn-lg btn-sidebar"  %></li>
       <% end %>
       <li><%= link_to t(".create_report"), new_report_path , class: "btn-lg btn-sidebar"  %></li>
