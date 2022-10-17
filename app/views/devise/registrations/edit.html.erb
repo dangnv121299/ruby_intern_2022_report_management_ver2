@@ -1,0 +1,51 @@
+<h2><%= t ".title" %> <%= current_user.name %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <%= f.label t(".name") %>
+      <%= f.text_field :name, class: "form-control", placeholder: t(".placeholder_name") %>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <%= f.label t(".day_start") %>
+      <%= f.date_field :day_start, class: "form-control", placeholder: t(".day_start") %>
+    </div>
+  </div>
+    <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <%= f.label t(".phone") %>
+      <%= f.text_field :phone, class: "form-control", placeholder: t(".placeholder_phone") %>
+    </div>
+
+    <div class="col-md-8 mb-3">
+      <%= f.label t(".address") %>
+      <%= f.text_field :address, class: "form-control", placeholder: t(".placeholder_address") %>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: t(".password_blank") %>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <%= f.label :current_password %>
+      <%= f.password_field :current_password, autocomplete: "current-password", placeholder: t(".password_cf") %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit t(".button") %>
+  </div>
+<% end %>

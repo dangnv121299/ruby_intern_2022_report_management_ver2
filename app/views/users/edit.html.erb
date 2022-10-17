@@ -8,6 +8,7 @@
     <div class="gravatar_edit">
       <%= gravatar_for @user %>
       <%= link_to t(".text"), Settings.edit.link, target: :_blank %>
+      <%= link_to t(".change_password"), edit_password_path(:user) %>
     </div>
   </div>
 </div>

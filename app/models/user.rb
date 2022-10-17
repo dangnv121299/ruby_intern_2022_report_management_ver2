@@ -2,7 +2,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :lockable
   UPDATABLE_ATTRS_MANAGER = %i(name email password password_confirmation phone
                                address day_start).freeze
   UPDATABLE_ATTRS = %i(name email password password_confirmation phone

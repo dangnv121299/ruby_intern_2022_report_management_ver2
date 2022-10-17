@@ -13,7 +13,7 @@
       <% end %>
       <li><%= link_to t(".create_report"), new_report_path , class: "btn-lg btn-sidebar"  %></li>
       <li><%= link_to t(".report"), user_path(id: current_user), class: "btn-lg btn-sidebar"  %></li>
-      <li><%= link_to t(".settings"), edit_user_url(id: current_user), class: "btn-lg btn-sidebar"  %></li>
+      <li><%= link_to t(".settings"), edit_user_registration_url, class: "btn-lg btn-sidebar"  %></li>
     <% end %>
   </div>
 </nav>

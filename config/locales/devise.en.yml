@@ -26,12 +26,23 @@ en:
         subject: "Confirmation instructions"
       reset_password_instructions:
         subject: "Reset password instructions"
+        hello: "Hello"
+        request: "Someone has requested a link to change your password. You can do this through the link below."
+        warning: "If you didn't request this, please ignore this email."
+        notice: "Your password won't change until you access the link above and create a new one."
+        change: "Change my password"
       unlock_instructions:
         subject: "Unlock instructions"
+        hello: "Hello"
+        notice: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+        link: "Click the link below to unlock your account:"
+        unlock: "Unlock my account"
       email_changed:
         subject: "Email Changed"
       password_change:
         subject: "Password Changed"
+        hello: "Hello"
+        notify: "We're contacting you to notify you that your password has been changed."
     omniauth_callbacks:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
@@ -41,7 +52,31 @@ en:
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
       updated: "Your password has been changed successfully. You are now signed in."
       updated_not_active: "Your password has been changed successfully."
+      new:
+        title: "Forgot your password?"
+        send: "Send me reset password instructions"
+      edit:
+        title: "Change your password"
+        password: "New password"
+        password_confirmation: "Confirm new password"
+        change: "Change my password"
     registrations:
+      edit:
+        name: "Name"
+        email: "Email"
+        password: "Password"
+        confirm_password: "Confirm Password"
+        phone: "Phone"
+        address: "Address"
+        day_start: "Day Start"
+        placeholder_name: "Nguyễn Văn A"
+        placeholder_email: "example@example.com"
+        placeholder_phone: "0123456789"
+        placeholder_address: "Phương Liên, Đống Đa, Hà Nội"
+        title: "Edit profile of"
+        password_blank: "Leave blank if you don't want to change it"
+        password_cf: "We need your password to confirm your changes"
+        button: "Confirm"
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
       signed_up: "Welcome! You have signed up successfully."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
@@ -64,6 +99,8 @@ en:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+      title: "Resend unlock instructions"
+      submit: "Resend unlock instructions"
   errors:
     messages:
       already_confirmed: "was already confirmed, please try signing in"
