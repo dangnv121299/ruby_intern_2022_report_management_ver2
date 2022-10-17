@@ -81,6 +81,7 @@ vi:
       report: "Báo cáo hàng ngày"
       create: "Tạo mới"
       find_report: "Không tồn tại báo cáo trên"
+      access_denied: "Xin lỗi bạn không thể xem mục này"
     form:
       comment: "Ghi chú"
       status: "Trạng thái"

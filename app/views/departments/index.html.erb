@@ -1,6 +1,6 @@
 <% provide :title, t(".title") %>
 <h1><%= t".title" %></h1>
-<% if current_user.admin? %>
+<% if can? :create, Department %>
   <h4><%= link_to t(".create_department"), new_department_path, class: "btn btn-success btn-lg btn-create",
           data: { bs_toggle: "modal" , bs_target: "#modalLive" },
           remote: true %></h4>

@@ -8,7 +8,16 @@ class ApplicationController < ActionController::Base
   include Pagy::Backend
   before_action :set_locale
 
+  rescue_from CanCan::AccessDenied do |_exception|
+    flash[:alert] = t "reports.show.access_denied"
+    redirect_to root_path
+  end
+
   private
+
+  def current_ability
+    @current_ability ||= Ability.new(current_user, params)
+  end
 
   def configure_permitted_parameters
     added_attrs = [:email, :password, :password_confirmation, :remember_me]

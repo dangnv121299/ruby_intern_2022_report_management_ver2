@@ -2,8 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :find_user,
                 except: %i(new create index)
-  before_action :check_edit_role, only: %i(edit update)
-  before_action :check_create_role, only: %i(new create destroy)
+  load_and_authorize_resource
 
   def index
     @pagy, @users = pagy(User.sort_by_name, items: Settings.page_10)
@@ -62,19 +61,5 @@ class UsersController < ApplicationController
     else
       params.require(:user).permit User::UPDATABLE_ATTRS
     end
-  end
-
-  def check_edit_role
-    return if current_user?(@user) || is_manager?(current_user)
-
-    flash[:error] = t ".edit_fail"
-    redirect_to root_path
-  end
-
-  def check_create_role
-    return if is_manager?(current_user) || current_user.admin?
-
-    flash[:error] = t ".create_fail"
-    redirect_to root_path
   end
 end

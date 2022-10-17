@@ -1,6 +1,6 @@
 class DepartmentsController < ApplicationController
-  before_action :check_role_admin, only: %i(new create)
   before_action :load_department, except: %i(index new create)
+  load_and_authorize_resource
 
   def index
     @pagy, @departments = pagy(Department.sort_by_name)
@@ -50,10 +50,6 @@ class DepartmentsController < ApplicationController
   end
 
   private
-
-  def check_role_admin
-    current_user.admin?
-  end
 
   def department_params
     params.require(:department).permit Department::UPDATABLE_ATTRS

@@ -1,6 +1,6 @@
 <% provide :title, @department.name %>
 <h1><%= @department.name %></h1>
-<% if managed_this_department(current_user, @department) || current_user.admin? %>
+<% if can? :create, UserDepartment %>
   <h4><%= link_to t(".add_user"),
           new_department_user_department_path(department_id: @department.id ),
           class: "btn btn-success btn-lg btn-create",
