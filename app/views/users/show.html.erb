@@ -1,12 +1,11 @@
 <% provide :title, @user.name %>
-<div class="row">
-  <% if @reports.any? %>
-    <h3><span id = "users-show"><%= t ".total" %>(<%= @pagy.count %>)</span></h3>
-    <%= link_to t(".create_report"), new_report_url, class: "btn btn-success btn-lg btn-block col-md-4 block-button"%>
-      <ol class="reports">
-        <%= render @reports %>
-      </ol>
-    <%== pagy_bootstrap_nav(@pagy) %>
-  <% end %>
-</div>
+<% if @reports.any? %>
+  <h3 class="col-md-10 pl-0 d-inline"><span><%= t ".total" %>(<%= @pagy.count %>)</span></h3>
+  <%= link_to t(".create_report"), new_report_url, class: "btn btn-secondary col-md-2 mb-2" %>
+    <ol class="reports flex-column">
+      <%= render "reports/report_header" %>
+      <%= render @reports %>
+    </ol>
+  <%== pagy_bootstrap_nav(@pagy) %>
+<% end %>
 <%= render "shared/modal" %>

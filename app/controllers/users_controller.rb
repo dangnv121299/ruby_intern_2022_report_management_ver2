@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
   def show
     if current_user.manager? || @user == current_user
-      @pagy, @reports = pagy @user.reports.sort_by_time
+      @pagy, @reports = pagy(@user.reports.sort_by_time, items: Settings.page_6)
     else
       @reports = []
     end

@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_report, except: %i(new index)
+  before_action :find_report, except: %i(new create index)
   before_action :check_owner_report, only: %i(edit)
   load_and_authorize_resource
 
@@ -8,7 +8,10 @@ class ReportsController < ApplicationController
     @search = Report.ransack(params[:search],
                              auth_object: set_ransack_auth_object)
     @reports = @search.result.includes(:user, :department)
-    @pagy, @feed_items = pagy @reports.newest
+    @pagy, @feed_items = pagy(
+      @reports.by_department_id(find_managed(current_user)),
+      items: Settings.page_5
+    )
     respond_to do |format|
       format.html
       format.xlsx

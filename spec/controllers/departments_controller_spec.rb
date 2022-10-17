@@ -25,7 +25,7 @@ RSpec.describe DepartmentsController, type: :controller do
       end
 
       it "should redirect to this department" do
-        expect(response).to redirect_to department_url(id: Department.last.id)
+        expect(response).to redirect_to departments_url
       end
     end
 

@@ -13,6 +13,8 @@ vi:
       greeting: "Bạn có một bản báo cáo vừa được phản hồi. Hãy kiểm tra bản báo cáo ngay!."
       link: "Nhấp vào đây để tới đường dẫn."
   user_departments:
+    create:
+      update_member: "Thêm nhân viên thành công"
     form:
       name: "Tên nhân viên"
       create: "Tạo"
@@ -81,6 +83,15 @@ vi:
       create: "Cập nhật"
       status: "Trạng thái"
       comment: "Ghi chú"
+    report_header:
+      name: "Tên"
+      plan_today: "Kế hoạch hôm nay"
+      status: "Trạng thái"
+      edit: "Chỉnh sửa"
+      time_create: "Thời gian khởi tạo"
+      department_received: "Nơi nhận"
+      read_more: "xem thêm"
+      manage: "Tùy chọn"
     report:
       name: "Tên"
       plan_today: "Kế hoạch hôm nay"
@@ -202,7 +213,7 @@ vi:
       settings: "Cài đặt tài khoản"
       create_report: "Báo cáo nhanh"
       create_user: "Tạo nhân viên mới"
-      filter_report: "Lọc báo cáo nhanh"
+      filter_report: "Báo cáo của bộ phận"
     searchbar:
       all: "Chọn tất cả"
       status: "Trạng thái"
@@ -215,6 +226,7 @@ vi:
       department: "Bộ phận"
       reset: "Làm mới"
       download: "Tải về file .xlsx"
+      department_report: "Danh sách báo cáo"
   static_pages:
     help:
       title: "Trợ giúp"

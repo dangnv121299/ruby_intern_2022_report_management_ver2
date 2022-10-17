@@ -1,9 +1,9 @@
 class UserDepartmentsController < ApplicationController
   before_action :find_department, :authenticate_user!
   before_action :find_user, only: %i(create)
-  before_action :check_role_manager, only: :destroy
+  before_action :check_role_manager, only: %i(destroy new)
   before_action :find_user_department, except: %i(new create)
-  authorize_resource except: :destroy
+  authorize_resource except: %i(destroy new)
 
   def new
     @user_department = @department.user_departments.build
@@ -24,6 +24,7 @@ class UserDepartmentsController < ApplicationController
       users_department.map(&:save!)
       redirect_to department_url(id: params[:department_id])
     end
+    flash[:success] = t ".update_member"
   end
 
   def edit

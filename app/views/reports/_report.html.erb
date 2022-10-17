@@ -1,17 +1,5 @@
 <li id="report-<%= report.id %>">
   <table class="table-striped table-hover report-table">
-    <thead>
-      <tr>
-        <th id="width-5"></th>
-        <th id="width-15" class="user"><span><%= t ".name" %></span></th>
-        <th id="width-10" class="user"><span><%= t ".department_received" %></span></th>
-        <th id="width-30" class="plan_today"><span><%= t ".plan_today" %></span></th>
-        <th id="width-15" class=""><%= t ".time_create" %></th>
-        <th id="width-15"><span><%= t ".status" %></span></th>
-        <th id="width-10" class="edit"></th>
-      </tr>
-    </thead>
-    <tbody>
       <tr>
         <td id="width-5"><%= link_to gravatar_for(report.user, size: Settings.digit_50), report.user %></td>
         <td id="width-15" class="user"><span><%= link_to report.user_name, report %></span></td>
@@ -24,21 +12,24 @@
         <td id="width-15" class=""><%= l(report.created_at, format: :short) %></td>
         <td id="width-15"><span  class="status color-<%= report.status%>"><%= report.status %></span></td>
         <td id="width-10" class="edit">
-          <% if current_user.id != report.user_id %>
-            <span class="btn btn-primary text-white">
-              <%= link_to t(".manage"), edit_report_url(id: report.id), class: "text-light",
-                data: { bs_toggle: "modal" , bs_target: "#modalLive" },
-                remote: true %>
-            </span>
+          <% if !report.pending? %>
+            <%= link_to t(".read"), report, class: "btn btn-primary" %>
           <% else %>
-            <span class="btn btn-primary text-white">
-              <%= link_to t(".edit"), edit_report_url(id: report.id), class: "text-light",
-                data: { bs_toggle: "modal" , bs_target: "#modalLive" },
-                remote: true %>
-            </span>
+            <% if current_user.id != report.user_id %>
+              <span class="btn btn-primary text-white">
+                <%= link_to t(".manage"), edit_report_url(id: report.id), class: "text-light",
+                  data: { bs_toggle: "modal" , bs_target: "#modalLive" },
+                  remote: true %>
+              </span>
+            <% else %>
+              <span class="btn btn-primary text-white">
+                <%= link_to t(".edit"), edit_report_url(id: report.id), class: "text-light",
+                  data: { bs_toggle: "modal" , bs_target: "#modalLive" },
+                  remote: true %>
+              </span>
+            <% end %>
           <% end %>
         </td>
       </tr>
-    </tbody>
   <table>
 </li>

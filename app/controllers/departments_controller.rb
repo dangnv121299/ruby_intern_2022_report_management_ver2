@@ -19,7 +19,10 @@ class DepartmentsController < ApplicationController
     @department = Department.new department_params
     if @department.save
       flash[:info] = t ".create_success"
-      redirect_to @department
+      respond_to do |format|
+        format.html{redirect_to departments_path}
+        format.js
+      end
     else
       flash.now[:danger] = t ".create_fail"
       render :new

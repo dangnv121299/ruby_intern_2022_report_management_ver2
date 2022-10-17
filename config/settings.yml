@@ -21,6 +21,9 @@ form:
 users_helper:
   gravatar_size: 50
 page_10: 10
+page_7: 7
+page_5: 5
+page_6: 6
 digit_50: 50
 infor:
   datetime: "%d/%m/%Y"

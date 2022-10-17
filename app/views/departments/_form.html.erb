@@ -1,4 +1,4 @@
-<%= form_for @department do |f| %>
+<%= form_for @department, remote: true do |f| %>
   <%= render "shared/error_messages", object: f.object %>
   <div class="form-group">
     <%= f.label t(".name") %>

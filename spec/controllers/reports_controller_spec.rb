@@ -62,8 +62,6 @@ RSpec.describe ReportsController, type: :controller do
           report: {plan_today: "Today", reality: "reality", plan_next_day: "next day", department_id: department_1.id}
         }
       end
-      it "should display a info flash" do
-      end
     end
 
     context "when create and save a new report failure" do
@@ -73,7 +71,7 @@ RSpec.describe ReportsController, type: :controller do
         }
       end
       it "should display a danger flash" do
-        expect(flash.now[:danger]).to eq I18n.t("reports.create.find_report")
+        expect(flash.now[:danger]).to eq I18n.t("reports.create.create_fail")
       end
     end
   end
@@ -107,7 +105,7 @@ RSpec.describe ReportsController, type: :controller do
       context "when the editer is the manager of the report" do
         before do
           get :edit, xhr: true, params:{
-            id: report_1.id
+          id: report_1.id
           }
         end
 

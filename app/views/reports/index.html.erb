@@ -1,12 +1,5 @@
 <% provide :title, t(".title") %>
-<% if is_manager?(current_user) %>
-  <h1 id="department-report"><%= t ".filter_report" %></h1>
-  <%= render "layouts/searchbar" %>
-  <h1 id="department-report"><%= t ".department_report" %></h1>
-  <%= render "shared/feed" %>
-<% else %>
-  <h1 id="department-report"><%= t ".my_report" %></h1>
-  <%= render @reports %>
-  <%== pagy_bootstrap_nav(@pagy) %>
-<% end %>
+<h1 id="department-report"><%= t ".filter_report" %></h1>
+<%= render "layouts/searchbar" %>
+<%= render "shared/feed" %>
 <%= render "shared/modal" %>

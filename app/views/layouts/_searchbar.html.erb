@@ -26,13 +26,16 @@
     </div>
   </div>
   <div class="form-row">
+    <h1 class="col-md-4" id="department-report">
+      <%= t ".department_report" %>
+    </h1>
     <div class="col-md-2 mb-3">
       <%= f.submit t(".search"), class: "btn btn-primary" %>
     </div>
     <div class="col-md-2 mb-3">
       <%= link_to t(".reset"), reports_url, class: "btn btn-primary" %>
     </div>
-    <div class="col-md-8 mb-3 text-right">
+    <div class="col-md-4 mb-3 text-right">
       <%= link_to t(".download"), reports_path(format: :xlsx), class: "btn btn-primary" %>
     </div>
   </div>

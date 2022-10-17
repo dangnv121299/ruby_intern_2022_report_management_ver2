@@ -372,8 +372,8 @@ aside {
   }
 }
 #department-report {
+  width: 33%;
   border-bottom: 2px solid rgba(109, 114, 119, 0.712);
-  width: 35%;
   text-align: left;
   font-size: 150%;
   padding-bottom: 10px;
@@ -421,6 +421,9 @@ aside {
 .mg-15 {
   margin-left: 15%;
 }
+.mg-20 {
+  margin-left: 20%;
+}
 .mg-30 {
   margin-left: 30%;
 }
@@ -432,4 +435,10 @@ aside {
 }
 #users-show {
   margin-right: 500px;
+}
+.z-index-1 {
+  z-index: 1;
+}
+.pl-15 {
+  padding-left: 15px;
 }

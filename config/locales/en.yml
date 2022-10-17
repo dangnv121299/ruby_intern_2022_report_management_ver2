@@ -13,6 +13,8 @@ en:
       greeting: "You has a report checked by your department. Let's check it right now."
       link: "This is a link to the report."
   user_departments:
+    create:
+      update_member: "Add member successful"
     form:
       name: "Name"
       create: "Create"
@@ -215,6 +217,7 @@ en:
       department: "Department"
       reset: "Reset"
       download: "Download as .xlsx"
+      department_report: "List of report"
   static_pages:
     help:
       title: "Help"
