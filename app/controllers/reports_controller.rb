@@ -28,7 +28,7 @@ class ReportsController < ApplicationController
     if @report.save
       flash[:info] = t ".create_success"
       redirect_to current_user
-      sent_email_manager
+      SendEmailJob.perform_later(current_user, @report)
     else
       flash.now[:danger] = t ".create_fail"
       render :new
@@ -47,7 +47,7 @@ class ReportsController < ApplicationController
     if @report.update report_params_edit
       redirect_to report_path(id: @report.id)
       flash[:success] = t ".update_success"
-      check_sent_email
+      SendEmailJob.perform_later(current_user, @report)
     else
       flash.now[:danger] = t ".update_fail"
       render :edit
@@ -78,22 +78,6 @@ class ReportsController < ApplicationController
 
     flash[:danger] = t ".find_report"
     redirect_to root_path
-  end
-
-  def check_sent_email
-    if current_user.id == @report.user_id
-      sent_email_manager
-    else
-      UserMailer.respond_report(@report).deliver_now
-    end
-  end
-
-  def sent_email_manager
-    @manager_ids = @report.department.user_departments.manager.pluck(:user_id)
-    users = User.by_id @manager_ids
-    users.each do |user|
-      UserMailer.account_notification(@report, user).deliver_now
-    end
   end
 
   def check_owner_report

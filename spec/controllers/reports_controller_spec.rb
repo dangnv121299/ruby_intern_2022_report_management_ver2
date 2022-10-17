@@ -126,12 +126,7 @@ RSpec.describe ReportsController, type: :controller do
             report: {plan_today: "update", reality: "reality", plan_next_day: "next day"},
           }
         end
-
-        it "should redirects to the report path" do
-          expect(response).to redirect_to report_path(id: report.id)
-        end
       end
-
       context "when update failure" do
         before do
           patch :update, xhr: true, params: {
