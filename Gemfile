@@ -28,6 +28,8 @@ gem "simplecov-rcov"
 gem "toastr-rails"
 gem "turbolinks", "~> 5"
 gem "webpacker", "~> 5.0"
+gem "ransack"
+gem "axlsx_rails"
 
 group :development, :test do
   gem "pry-rails", platforms: [:mri, :mingw, :x64_mingw]
