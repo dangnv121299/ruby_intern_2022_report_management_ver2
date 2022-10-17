@@ -67,6 +67,16 @@ vi:
       filter_report: "Lọc báo cáo nhanh"
       department_report: "Danh mục báo cáo"
       my_report: "Báo cáo của tôi"
+      export:
+        id: ID
+        user_sent: "Người gửi"
+        department_received: "Bộ phận nhận"
+        status: "Trạng thái"
+        create_at: "Thời gian tạo"
+        plan_today: "Kế hoạch hôm nay"
+        reality: "Thực tế"
+        reason: "Lý do"
+        plan_next_day: "Kế hoạch tiếp theo"
     edit_report:
       create: "Cập nhật"
       status: "Trạng thái"
@@ -204,6 +214,7 @@ vi:
       plan_today: "Nội dung báo cáo chứa"
       department: "Bộ phận"
       reset: "Làm mới"
+      download: "Tải về file .xlsx"
   static_pages:
     help:
       title: "Trợ giúp"

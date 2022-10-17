@@ -1,0 +1,15 @@
+wb = xlsx_package.workbook
+
+wb.styles do |style|
+  title = style.add_style(bg_color: "24228b",
+                      fg_color: "ffffff",
+                      border: Axlsx::STYLE_THIN_BORDER,
+                      alignment: {horizontal: :center},
+                      sz: 16, b: true)
+  wb.add_worksheet(name: "Reports") do |sheet|
+    sheet.add_row  t(".export").values, style: title
+    @reports.each do |report|
+      sheet.add_row [report.id, report.user.name, report.department.name].concat(report.slice(*Report::EXPORT_ATTRS).values)
+    end
+  end
+end
