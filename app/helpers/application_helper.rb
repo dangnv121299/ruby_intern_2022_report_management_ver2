@@ -14,4 +14,10 @@ module ApplicationHelper
       flash_messages << text if message
     end.join("\n")
   end
+
+  def check_valid_date params, value
+    return if params.blank?
+
+    params[value].blank? ? "" : params[value].to_date
+  end
 end

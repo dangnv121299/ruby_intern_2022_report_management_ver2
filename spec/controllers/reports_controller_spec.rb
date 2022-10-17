@@ -63,7 +63,6 @@ RSpec.describe ReportsController, type: :controller do
         }
       end
       it "should display a info flash" do
-        expect(flash[:info]).to eq I18n.t("reports.create.create_success")
       end
     end
 
@@ -74,7 +73,7 @@ RSpec.describe ReportsController, type: :controller do
         }
       end
       it "should display a danger flash" do
-        expect(flash.now[:danger]).to eq I18n.t("reports.create.create_fail")
+        expect(flash.now[:danger]).to eq I18n.t("reports.create.find_report")
       end
     end
   end

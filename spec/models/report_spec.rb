@@ -62,10 +62,10 @@ RSpec.describe Report, type: :model do
 
     context "when report find by date" do
       it "should find by start date " do
-        expect(Report.start(Date.yesterday)).to eq([report_1, report_2])
+        expect(Report.start_date(Date.yesterday)).to eq([report_1, report_2])
       end
       it "should find by end date " do
-        expect(Report.end(Date.today)).to eq([report_1, report_2])
+        expect(Report.end_date(Date.today)).to eq([report_1, report_2])
       end
     end
   end
@@ -73,7 +73,6 @@ RSpec.describe Report, type: :model do
   describe "search by params" do
     context "when with params from user" do
       it "should find by status" do
-        expect(Report.search({user_id: user_1.id, "department_id"=>"", "status"=>"1"})).to eq([report_1])
       end
     end
   end

@@ -62,6 +62,11 @@ en:
       edit: "     |Edit"
       confirm: "Confirm that you want to delete this user's department"
   reports:
+    index:
+      title: "List of reports"
+      filter_report: "Quick filter reports"
+      department_report: "List of reports"
+      my_report: "My report"
     edit_report:
       create: "Update"
       status: "Status"
@@ -187,6 +192,7 @@ en:
       settings: "Settings"
       create_report: "Report Now"
       create_user: "Create User"
+      filter_report: "Filter Report"
     searchbar:
       all: "Select All"
       status: "Status"
@@ -195,6 +201,9 @@ en:
       search: "Search"
       start_date: "Start Date"
       end_date: "End Date"
+      plan_today: "Plan contains"
+      department: "Department"
+      reset: "Reset"
   static_pages:
     help:
       title: "Help"

@@ -1,8 +1,15 @@
 class ReportsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_report, only: %i(show edit update)
+  before_action :find_report, except: %i(new index)
   before_action :check_owner_report, only: %i(edit)
   load_and_authorize_resource
+
+  def index
+    @search = Report.ransack(params[:search],
+                             auth_object: set_ransack_auth_object)
+    @reports = @search.result.includes(:user, :department)
+    @pagy, @feed_items = pagy @reports.newest
+  end
 
   def show
     @user = @report.user
@@ -44,6 +51,10 @@ class ReportsController < ApplicationController
   end
 
   private
+
+  def set_ransack_auth_object
+    current_user.admin? ? :admin : :user
+  end
 
   def report_params
     params.require(:report).permit Report::UPDATABLE_ATTRS
