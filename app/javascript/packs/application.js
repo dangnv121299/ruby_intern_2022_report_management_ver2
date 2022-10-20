@@ -29,7 +29,7 @@ $(document).on("turbolinks:load", function () {
 });
 
 toastr.options = {
-  closeButton: true,
+  closeButton: false,
   positionClass: "toast-top-right",
   preventDuplicates: false,
   onclick: null,

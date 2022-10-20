@@ -1,7 +1,9 @@
 class UserDepartmentsController < ApplicationController
-  before_action :find_department, :check_role_manager, :authenticate_user!
+  before_action :find_department, :authenticate_user!
   before_action :find_user, only: %i(create)
+  before_action :check_role_manager, only: :destroy
   before_action :find_user_department, except: %i(new create)
+  authorize_resource except: :destroy
 
   def new
     @user_department = @department.user_departments.build
@@ -78,6 +80,6 @@ class UserDepartmentsController < ApplicationController
   end
 
   def check_role_manager
-    list_manager(@department).include?(current_user) || current_user.admin?
+    managed_this_department(current_user, @department) || current_user.admin?
   end
 end

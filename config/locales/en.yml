@@ -81,6 +81,7 @@ en:
       report: "Daily Report"
       create: "Create"
       find_report: "This report is not found"
+      access_denied: "You cannot access this link"
     form:
       comment: "Note"
       status: "Status"

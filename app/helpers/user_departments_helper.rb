@@ -26,11 +26,19 @@ module UserDepartmentsHelper
   end
 
   def is_manager? user
-    user.user_departments.pluck(:role).include?("manager")
+    user.user_departments.manager.present?
+  end
+
+  def is_member? user
+    user.user_departments.member.present?
   end
 
   def managed_this_department user, department
     user.user_departments.manager.pluck(:department_id).include?(department.id)
+  end
+
+  def managed_this_id_department user, department_id
+    user.user_departments.manager.pluck(:department_id).include?(department_id)
   end
 
   def role_edit_user_department user, department, flag

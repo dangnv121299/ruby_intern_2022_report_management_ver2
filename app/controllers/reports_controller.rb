@@ -2,6 +2,8 @@ class ReportsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_report, only: %i(show edit update)
   before_action :check_owner_report, only: %i(edit)
+  load_and_authorize_resource
+
   def show
     @user = @report.user
   end

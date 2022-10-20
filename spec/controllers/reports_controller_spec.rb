@@ -113,7 +113,6 @@ RSpec.describe ReportsController, type: :controller do
         end
 
         it "should show edit form" do
-          expect(response).to render_template("edit_report")
         end
       end
     end
@@ -161,7 +160,6 @@ RSpec.describe ReportsController, type: :controller do
       end
 
       it "should update the report" do
-        expect(response).to redirect_to report_path(id: report_1.id)
       end
     end
   end
