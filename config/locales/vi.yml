@@ -62,6 +62,11 @@ vi:
       edit: "     |Sửa quyền"
       confirm: "Xác nhận xóa nhân viên ra khỏi bộ phận?"
   reports:
+    index:
+      title: "Danh mục báo cáo"
+      filter_report: "Lọc báo cáo nhanh"
+      department_report: "Danh mục báo cáo"
+      my_report: "Báo cáo của tôi"
     edit_report:
       create: "Cập nhật"
       status: "Trạng thái"
@@ -187,6 +192,7 @@ vi:
       settings: "Cài đặt tài khoản"
       create_report: "Báo cáo nhanh"
       create_user: "Tạo nhân viên mới"
+      filter_report: "Lọc báo cáo nhanh"
     searchbar:
       all: "Chọn tất cả"
       status: "Trạng thái"
@@ -195,6 +201,9 @@ vi:
       search: "Tìm kiếm"
       start_date: "Ngày bắt đầu"
       end_date: "Ngày kết thúc"
+      plan_today: "Nội dung báo cáo chứa"
+      department: "Bộ phận"
+      reset: "Làm mới"
   static_pages:
     help:
       title: "Trợ giúp"

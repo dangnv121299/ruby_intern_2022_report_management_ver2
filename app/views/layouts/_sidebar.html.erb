@@ -11,6 +11,7 @@
       <% if is_manager?(current_user) || current_user.admin? %>
         <li><%= link_to t(".create_user"), new_user_url, class: "btn-lg btn-sidebar"  %></li>
       <% end %>
+      <li><%= link_to t(".filter_report"), reports_url, class: "btn-lg btn-sidebar"  %></li>
       <li><%= link_to t(".create_report"), new_report_path , class: "btn-lg btn-sidebar"  %></li>
       <li><%= link_to t(".report"), user_path(id: current_user), class: "btn-lg btn-sidebar"  %></li>
       <li><%= link_to t(".settings"), edit_user_registration_url, class: "btn-lg btn-sidebar"  %></li>

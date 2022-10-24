@@ -1,27 +1,36 @@
-<%= form_tag root_path, method: "get" do %>
+<%= search_form_for @search do |f| %>
   <div class="form-row">
     <div class="col-md-2 mb-3">
-      <%= label_tag t(".user") %>
-      <%= collection_select(nil, :user_id, list_member_managed(current_user), :id, :name, {selected: params[:user_id], prompt: t(".all")}, class: "select2-search" )%>
+      <%= f.label t(".plan_today") %>
+      <%= f.search_field :plan_today_cont %>
     </div>
     <div class="col-md-2 mb-3">
-      <%= label_tag t(".department") %>
-      <%= collection_select(nil, :department_id, list_department_managed(current_user), :id, :name, {selected: params[:department_id], prompt: t(".all")}, class: "select2-search" ) %>
-    </div>
-    <div class="col-md-2 mb-2">
-      <%= label_tag t(".status") %>
-      <%= select_tag(:status, options_for_select(Report.statuses.to_a, params[:status]), {selected: params[:status], prompt: t(".all"), class: "select2-search"}) %>
+      <%= f.label t(".user") %>
+      <%= f.search_field :user_name_cont %>
     </div>
     <div class="col-md-2 mb-3">
-      <%= label_tag t(".start_date") %>
-      <%= date_field_tag :start_date, params[:start_date] %>
+      <%= f.label t(".department") %>
+      <%= f.search_field :department_name_cont %>
     </div>
     <div class="col-md-2 mb-3">
-      <%= label_tag t(".end_date") %>
-      <%= date_field_tag :end_date, params[:end_date] %>
+      <%= f.label t(".status") %>
+      <%= f.select :status_eq, options_for_select(Report.statuses.to_a),{:prompt => true} , class: "select2-search" %>
     </div>
-    <div class="col-md-2 mb-4 search-filter">
-      <%= submit_tag t(".search"), name: nil, class: "btn btn-primary" %>
+    <div class="col-md-2 mb-3">
+      <%= f.label t(".start_date") %>
+      <%= f.date_field :start_date, value: check_valid_date(params[:search], :start_date) %>
+    </div>
+    <div class="col-md-2 mb-3">
+      <%= f.label t(".end_date") %>
+      <%= f.date_field :end_date, value: check_valid_date(params[:search], :end_date) %>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-2 mb-3">
+      <%= f.submit t(".search"), class: "btn btn-primary" %>
+    </div>
+    <div class="col-md-2 mb-3">
+      <%= link_to t(".reset"), reports_url, class: "btn btn-primary" %>
     </div>
   </div>
 <% end %>

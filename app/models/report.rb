@@ -20,16 +20,17 @@ class Report < ApplicationRecord
                               end
                             }
   scope :search_user, ->(user_id){where(user_id: user_id) if user_id.present?}
-  scope :start, lambda {|start_date|
-                  if start_date.present?
-                    where "created_at > ?", start_date.to_date.beginning_of_day
-                  end
-                }
-  scope :end, lambda {|end_date|
-                if end_date.present?
-                  where "created_at < ?", end_date.to_date.end_of_day
-                end
-              }
+  scope :start_date, lambda {|start_date|
+                       if start_date.present?
+                         where "created_at > ?",
+                               start_date.to_date.beginning_of_day
+                       end
+                     }
+  scope :end_date, lambda {|end_date|
+                     if end_date.present?
+                       where "created_at < ?", end_date.to_date.end_of_day
+                     end
+                   }
 
   enum status: {pending: 0, approved: 1, rejected: 2}
   validates :plan_today, :reality, :plan_next_day, presence: true,
@@ -37,13 +38,16 @@ class Report < ApplicationRecord
 
   delegate :name, to: :user, prefix: true
 
+  ransacker :start_date, type: :date do
+    Arel.sql("date(start_date)")
+  end
+  ransacker :end_date, type: :date do
+    Arel.sql("date(end_date)")
+  end
+
   class << self
-    def search params
-      search_status(params[:status])
-        .start(params[:start_date])
-        .end(params[:end_date])
-        .search_department(params[:department_id])
-        .search_user(params[:user_id])
+    def ransackable_scopes _auth_object = nil
+      %i(start_date end_date)
     end
   end
 end
