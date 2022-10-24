@@ -2,6 +2,8 @@ class Report < ApplicationRecord
   UPDATABLE_ATTRS = %i(plan_today reality reason plan_next_day
                        department_id).freeze
   UPDATABLE_ATTRS_MANAGER = %i(status comment user_department_id).freeze
+  EXPORT_ATTRS = %i(status created_at plan_today reality reason
+                    plan_next_day).freeze
 
   belongs_to :user
   belongs_to :department, optional: true

@@ -9,6 +9,10 @@ class ReportsController < ApplicationController
                              auth_object: set_ransack_auth_object)
     @reports = @search.result.includes(:user, :department)
     @pagy, @feed_items = pagy @reports.newest
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
   end
 
   def show

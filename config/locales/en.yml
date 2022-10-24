@@ -67,6 +67,16 @@ en:
       filter_report: "Quick filter reports"
       department_report: "List of reports"
       my_report: "My report"
+      export:
+        id: ID
+        user_sent: "User Sent"
+        department_received: "Department Received"
+        status: "Status"
+        create_at: "Created At"
+        plan_today: "Plan Today"
+        reality: "Reality"
+        reason: "Reason"
+        plan_next_day: "Plan Next Day"
     edit_report:
       create: "Update"
       status: "Status"
@@ -204,6 +214,7 @@ en:
       plan_today: "Plan contains"
       department: "Department"
       reset: "Reset"
+      download: "Download as .xlsx"
   static_pages:
     help:
       title: "Help"
