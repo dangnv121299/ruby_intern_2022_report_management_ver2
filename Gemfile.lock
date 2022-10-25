@@ -73,6 +73,9 @@ GEM
     bootsnap (1.13.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    bullet (7.0.3)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     cancancan (3.4.0)
     capybara (3.37.1)
       addressable
@@ -94,6 +97,7 @@ GEM
     config (4.0.0)
       deep_merge (~> 1.2, >= 1.2.1)
       dry-validation (~> 1.0, >= 1.0.0)
+    connection_pool (2.3.0)
     crass (1.0.6)
     deep_merge (1.2.2)
     devise (4.8.1)
@@ -252,6 +256,7 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (4.8.0)
     regexp_parser (2.5.0)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -314,6 +319,10 @@ GEM
     semantic_range (3.0.0)
     shoulda-matchers (5.2.0)
       activesupport (>= 5.2.0)
+    sidekiq (6.5.7)
+      connection_pool (>= 2.2.5)
+      rack (~> 2.0)
+      redis (>= 4.5.0, < 5)
     simplecov (0.21.2)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -340,6 +349,7 @@ GEM
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.3.0)
+    uniform_notifier (1.16.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -373,6 +383,7 @@ DEPENDENCIES
   axlsx_rails
   bcrypt (= 3.1.13)
   bootsnap (>= 1.4.4)
+  bullet
   cancancan
   capybara (>= 3.26)
   config
@@ -403,6 +414,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
   shoulda-matchers
+  sidekiq
   simplecov
   simplecov-rcov
   spring
