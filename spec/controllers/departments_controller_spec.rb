@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'shared_render'
 include SessionsHelper
 
 RSpec.describe DepartmentsController, type: :controller do
@@ -36,9 +37,7 @@ RSpec.describe DepartmentsController, type: :controller do
         }
       end
 
-      it "should redirect to this department" do
-        expect(response).to render_template("new")
-      end
+      include_examples "shared render", "new"
     end
 
   end
@@ -63,9 +62,8 @@ RSpec.describe DepartmentsController, type: :controller do
           department: {name: ""},
         }
       end
-      it "should redirects to the new path" do
-        expect(response).to render_template("edit")
-      end
+      
+      include_examples "shared render", "edit"
     end
   end
 

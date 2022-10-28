@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'shared_render'
 include SessionsHelper
 
 RSpec.describe ReportsController, type: :controller do
@@ -99,9 +100,7 @@ RSpec.describe ReportsController, type: :controller do
           }
         end
 
-        it "should show edit form" do
-          expect(response).to render_template("form")
-        end
+        include_examples "shared render", "form"
       end
 
       context "when the editer is the manager of the report" do
@@ -139,9 +138,7 @@ RSpec.describe ReportsController, type: :controller do
           expect(flash.now[:danger]).to eq I18n.t("reports.update.update_fail")
         end
 
-        it "should render a edit again" do
-          expect(response).to render_template :edit
-        end
+        include_examples "shared render", :edit
       end
     end
 
